@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beyond CG Studio - 最高品質の建築ビジュアライゼーション</title>
+    <title>Beyond CG STUDIO | 最高品質の建築ビジュアライゼーション</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #1a1a1a;
-            --secondary-color: #f0f0f0;
-            --accent-color: #c0a062;
-            --text-color: #dcdcdc;
-            --bg-color: #121212;
+            --bg-color: #0a0a0a;
+            --surface-color: #111111;
+            --primary-color: #ffffff;
+            --secondary-color: #a0a0a0;
+            --accent-color: #d4af37; /* ゴールドアクセント */
+            --text-muted: #555;
+            --transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
         * {
@@ -24,41 +26,71 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 100px;
         }
 
         body {
             font-family: 'Noto Sans JP', sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--primary-color);
             line-height: 1.8;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
 
+        /* タイポグラフィ */
         h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--secondary-color);
+            font-family: 'Playfair Display', 'Noto Sans JP', serif;
+            letter-spacing: 0.05em;
+        }
+
+        .section-label {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            color: var(--accent-color);
+            margin-bottom: 25px;
             font-weight: 700;
         }
 
-        /* Header */
-        .main-header {
+        /* アニメーション */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: var(--transition);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ヘッダー */
+        header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(18, 18, 18, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 20px 0;
             z-index: 1000;
-            transition: background-color 0.3s;
+            padding: 35px 0;
+            transition: var(--transition);
         }
 
-        .main-header .container {
+        header.scrolled {
+            padding: 20px 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -66,373 +98,879 @@
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            color: var(--secondary-color);
+            font-size: 1.4rem;
+            font-weight: 700;
             text-decoration: none;
+            color: var(--primary-color);
+            letter-spacing: 0.15em;
         }
 
-        .main-nav ul {
-            list-style: none;
+        .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 45px;
+            list-style: none;
         }
 
-        .main-nav a {
-            color: var(--secondary-color);
+        .nav-links a {
             text-decoration: none;
+            color: var(--secondary-color);
+            font-size: 0.8rem;
             font-weight: 300;
-            transition: color 0.3s, border-bottom 0.3s;
-            padding-bottom: 5px;
-            border-bottom: 2px solid transparent;
+            letter-spacing: 0.1em;
+            transition: var(--transition);
         }
 
-        .main-nav a:hover {
+        .nav-links a:hover {
             color: var(--accent-color);
-            border-bottom-color: var(--accent-color);
         }
 
-        /* Hero Section */
+        /* ヒーロー */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1588854337236-6889d631f375?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=3600') no-repeat center center/cover;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 35px;
-            background: var(--accent-color);
-            color: var(--primary-color);
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 700;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .cta-button:hover {
-            background-color: #d4b57a;
-            transform: translateY(-3px);
-        }
-
-        /* Sections */
-        .section {
-            padding: 120px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 80px;
-        }
-
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .service-item {
-            background: var(--primary-color);
-            padding: 40px;
-            text-align: center;
-            border-radius: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .service-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        .service-item .icon {
-            font-size: 48px;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
-
-        .service-item h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-
-        /* Portfolio Section */
-        #portfolio {
-            background: var(--primary-color);
-        }
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-        .portfolio-item {
             position: relative;
             overflow: hidden;
-            border-radius: 10px;
         }
-        .portfolio-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.4s ease;
-        }
-        .portfolio-item:hover img {
-            transform: scale(1.05);
-        }
-        .portfolio-overlay {
+
+        .hero-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            display: flex;
-            align-items: flex-end;
-            padding: 30px;
-            opacity: 1;
-            transition: opacity 0.4s;
-        }
-        .portfolio-overlay h3 {
-            font-size: 1.5rem;
-            color: #fff;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            z-index: -1;
+            transform: scale(1.1);
+            animation: heroZoom 25s infinite alternate;
         }
 
+        @keyframes heroZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.15); }
+        }
 
-        /* Testimonials Section */
-        .testimonial-grid {
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            line-height: 1.1;
+            margin-bottom: 35px;
+            font-weight: 400;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            font-weight: 200;
+            color: var(--secondary-color);
+            max-width: 650px;
+            margin-bottom: 50px;
+        }
+
+        /* ボタン */
+        .btn {
+            display: inline-block;
+            padding: 20px 50px;
+            border: 1px solid var(--accent-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            transition: var(--transition);
+            background: transparent;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .section {
+            padding: 160px 0;
+        }
+
+        /* サービス */
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 80px;
         }
-        .testimonial-item {
-            background: var(--primary-color);
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 5px solid var(--accent-color);
+
+        .service-card {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 45px;
         }
-        .testimonial-item p {
-            font-style: italic;
-            margin-bottom: 20px;
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 400;
         }
-        .testimonial-author {
+
+        .service-card p {
+            color: var(--secondary-color);
+            font-weight: 300;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* ポートフォリオ */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 25px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            background: var(--surface-color);
+        }
+
+        .portfolio-item.large { grid-column: span 8; height: 650px; }
+        .portfolio-item.medium { grid-column: span 4; height: 650px; }
+        .portfolio-item.wide { grid-column: span 12; height: 550px; }
+        .portfolio-item.square { grid-column: span 6; height: 500px; }
+        .portfolio-item.small { grid-column: span 4; height: 400px; }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+            filter: brightness(0.8);
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.08);
+            filter: brightness(1);
+        }
+
+        .portfolio-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            transform: translateY(20px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-info {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .portfolio-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 400;
+        }
+
+        .portfolio-info p {
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* 価格表 */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .pricing-card {
+            background: var(--surface-color);
+            padding: 60px 30px;
+            border: 1px solid rgba(255,255,255,0.03);
+            transition: var(--transition);
+            position: relative;
             display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .pricing-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-5px);
+            background: #181818;
+        }
+
+        .pricing-card.featured {
+            border-color: rgba(212, 175, 55, 0.2);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+            z-index: 2;
+        }
+
+        .pricing-card.featured::after {
+            content: "推奨プラン";
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .pricing-card h3 {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            letter-spacing: 0.2em;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+        }
+
+        .price-container {
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        .price-value {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+            color: var(--primary-color);
+            line-height: 1;
+            display: block;
+        }
+
+        .price-unit {
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            margin-top: 15px;
+            display: block;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        .price-list {
+            list-style: none;
+            width: 100%;
+            margin-bottom: 50px;
+            flex-grow: 1;
+        }
+
+        .price-list li {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            font-weight: 300;
+        }
+
+        .price-item-header {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
         }
-        .testimonial-author img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
+
+        /* オプションセクション */
+        .options-container {
+            margin-top: 120px;
+            background: rgba(255,255,255,0.01);
+            padding: 80px 40px;
+            border: 1px solid rgba(255,255,255,0.03);
         }
-        .author-info h4 {
-            font-family: 'Noto Sans JP', sans-serif;
+
+        .options-title {
+            font-size: 1.8rem;
+            margin-bottom: 60px;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .option-item {
+            display: flex;
+            gap: 20px;
+            padding: 30px;
+            background: var(--surface-color);
+            border: 1px solid rgba(255,255,255,0.03);
+            transition: var(--transition);
+        }
+
+        .option-item:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            background: #181818;
+        }
+
+        .option-icon {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            flex-shrink: 0;
+        }
+
+        .option-content {
+            flex-grow: 1;
+        }
+
+        .option-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .option-name {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .option-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            font-style: italic;
+        }
+
+        .option-desc {
+            font-size: 0.8rem;
             color: var(--secondary-color);
+            line-height: 1.6;
+            font-weight: 300;
         }
-        .author-info span {
-            font-size: 0.9em;
+
+        /* 修正・変更の説明エリア */
+        .correction-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .correction-box {
+            background: var(--surface-color);
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.03);
+            border-left: 2px solid var(--secondary-color);
+        }
+
+        .correction-box.change {
+            border-left: 2px solid var(--accent-color);
+        }
+
+        .correction-title {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .correction-subtitle {
+            font-size: 0.7rem;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 300;
+        }
+
+        .correction-desc {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            line-height: 1.9;
+            font-weight: 300;
+        }
+
+        .highlight-text {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .alert-text {
+            color: var(--accent-color);
+            display: block;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .pricing-note {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 80px;
+            text-align: center;
+            letter-spacing: 0.05em;
+        }
+
+        /* スタジオ情報 */
+        #info {
+            background-color: var(--surface-color);
+        }
+
+        .info-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 120px;
+        }
+
+        .info-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .info-block h4 {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .info-block p, .info-block a {
+            font-size: 1rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .info-block a:hover {
             color: var(--accent-color);
         }
 
-        /* Contact Section */
-        #contact {
-            background: var(--primary-color);
-        }
-        .contact-form {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .form-group {
-            margin-bottom: 25px;
-        }
-        .form-group input,
-        .form-group textarea {
+        .studio-map {
             width: 100%;
-            padding: 15px;
-            background: var(--bg-color);
-            border: 1px solid #333;
-            border-radius: 5px;
-            color: var(--text-color);
-            font-family: 'Noto Sans JP', sans-serif;
-        }
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-        .submit-btn {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background: var(--accent-color);
-            color: var(--primary-color);
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .submit-btn:hover {
-            background-color: #d4b57a;
+            height: 450px;
+            background: #000;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.03);
         }
 
-        /* Footer */
-        .main-footer {
-            background: #000;
-            padding: 40px 0;
+        /* 運営者情報 */
+        .operator-info {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .operator-title {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            letter-spacing: 0.1em;
+        }
+        
+        .operator-list {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 15px 40px;
+            font-size: 0.9rem;
+        }
+        
+        .operator-list dt {
+            color: var(--secondary-color);
+            font-weight: 300;
+        }
+        
+        .operator-list dd {
+            color: var(--primary-color);
+            font-weight: 300;
+        }
+
+        /* フッター */
+        footer {
+            padding: 100px 0;
+            background-color: var(--bg-color);
             text-align: center;
         }
-        .main-footer p {
-            color: #888;
-            font-size: 0.9em;
+
+        .footer-logo {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            display: block;
         }
 
+        .copyright {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 1100px) {
+            .pricing-grid, .options-grid, .correction-grid { grid-template-columns: repeat(2, 1fr); }
+            .correction-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 968px) {
+            .services-grid, .info-layout, .pricing-grid, .options-grid { grid-template-columns: 1fr; gap: 40px; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .portfolio-item.large, .portfolio-item.medium, .portfolio-item.wide, .portfolio-item.square, .portfolio-item.small { grid-column: span 1; height: 400px; }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 3rem; }
+            .container { padding: 0 25px; }
+            .pricing-card { padding: 50px 30px; }
+            .operator-list { grid-template-columns: 100px 1fr; }
+        }
     </style>
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="container">
-            <a href="#" class="logo">Beyond CG</a>
-            <nav class="main-nav">
-                <ul>
+    <header id="main-header">
+        <div class="container header-content">
+            <a href="#" class="logo">Beyond CG STUDIO</a>
+            <nav>
+                <ul class="nav-links">
                     <li><a href="#services">サービス</a></li>
                     <li><a href="#portfolio">制作実績</a></li>
-                    <li><a href="#testimonials">お客様の声</a></li>
-                    <li><a href="#contact">お問い合わせ</a></li>
+                    <li><a href="#pricing">価格案内</a></li>
+                    <li><a href="#info">スタジオ</a></li>
                 </ul>
             </nav>
+            <a href="#info" class="btn" style="padding: 12px 30px; font-size: 0.65rem;">お問い合わせ</a>
         </div>
     </header>
 
     <main>
+        <!-- ヒーロー -->
         <section class="hero">
-            <div class="hero-content">
-                <h1>空間に、生命を吹き込む。</h1>
-                <p>Beyond CG Studioは、単なるビジュアライゼーションを超え、感動を呼ぶ建築CGを創造します。</p>
-                <a href="#contact" class="cta-button">プロジェクトのご相談はこちら</a>
+            <div class="hero-bg"></div>
+            <div class="container">
+                <div class="hero-content reveal">
+                    <span class="section-label">建築ビジュアライゼーションスタジオ</span>
+                    <h1>リアリティを超え、<br>想いを可視化する。</h1>
+                    <p>私たちは、最先端のCG技術と芸術的な感性を融合させ、まだ見ぬ空間に生命を吹き込むクリエイティブスタジオです。</p>
+                    <a href="#portfolio" class="btn">制作実績を見る</a>
+                </div>
             </div>
         </section>
 
+        <!-- サービス -->
         <section id="services" class="section">
             <div class="container">
-                <h2 class="section-title">サービス</h2>
+                <span class="section-label reveal">事業内容</span>
                 <div class="services-grid">
-                    <div class="service-item">
-                        <div class="icon">🏙️</div>
-                        <h3>建築CGパース</h3>
-                        <p>写真と見紛うほどのリアリティで、未完成の建築プロジェクトを可視化。光、影、質感を緻密に計算し、最高のビジュアルを制作します。</p>
+                    <div class="service-card reveal">
+                        <h3>建築外観パース</h3>
+                        <p>光の移ろいや空気感まで描き出す外観パース。建築家が意図した「素材の質感」と「環境との調和」を最高の一枚に凝縮します。</p>
                     </div>
-                    <div class="service-item">
-                        <div class="icon">🎬</div>
-                        <h3>ウォークスルー動画</h3>
-                        <p>空間を実際に歩いているかのような没入感あふれるアニメーションを制作。プレゼンテーションやマーケティングに絶大な効果を発揮します。</p>
-                    </div>
-                    <div class="service-item">
-                        <div class="icon">🛋️</div>
+                    <div class="service-card reveal" style="transition-delay: 0.2s;">
                         <h3>インテリアCG</h3>
-                        <p>家具や照明、素材のディテールに至るまで、理想のインテリア空間をCGで具現化。多様なデザインバリエーションを瞬時に比較検討できます。</p>
+                        <p>空間の物語を語る室内ビジュアル。家具のディテールから照明の複雑な反射まで、そこに住まう人の気配さえ感じるリアリティを追求します。</p>
+                    </div>
+                    <div class="service-card reveal" style="transition-delay: 0.4s;">
+                        <h3>シネマティック動画</h3>
+                        <p>空間を体験する高品質なアニメーション。没入感のある演出とドローン視点のようなダイナミックな動きで、プロジェクトの価値を最大化します。</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="portfolio" class="section">
+        <!-- 制作実績 -->
+        <section id="portfolio" class="section" style="padding-top: 0;">
             <div class="container">
-                <h2 class="section-title">制作実績</h2>
+                <span class="section-label reveal">制作実績</span>
                 <div class="portfolio-grid">
-                    <div class="portfolio-item">
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1800" alt="モダンな住宅の外観パース">
-                        <div class="portfolio-overlay"><h3>プロジェクトA：都心の邸宅</h3></div>
+                    <!-- Row 1 -->
+                    <div class="portfolio-item large reveal">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="軽井沢の別荘">
+                        <div class="portfolio-info">
+                            <h3>軽井沢の静寂な別荘</h3>
+                            <p>住宅 / 2024</p>
+                        </div>
                     </div>
-                    <div class="portfolio-item">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1800" alt="ラグジュアリーホテルのロビー">
-                        <div class="portfolio-overlay"><h3>プロジェクトB：リゾートホテル</h3></div>
+                    <div class="portfolio-item medium reveal" style="transition-delay: 0.1s;">
+                        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=1974&auto=format&fit=crop" alt="キッチン">
+                        <div class="portfolio-info">
+                            <h3>ノワール・キッチン</h3>
+                            <p>内観 / 2023</p>
+                        </div>
                     </div>
-                    <div class="portfolio-item">
-                        <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1800" alt="商業施設のインテリア">
-                        <div class="portfolio-overlay"><h3>プロジェクトC：商業施設</h3></div>
+                    <!-- Row 2 -->
+                    <div class="portfolio-item wide reveal">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" alt="オフィスビル">
+                        <div class="portfolio-info">
+                            <h3>スカイライン本社ビル</h3>
+                            <p>商業施設 / 2024</p>
+                        </div>
                     </div>
-                    <div class="portfolio-item">
-                        <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1800" alt="オフィスビルの外観">
-                        <div class="portfolio-overlay"><h3>プロジェクトD：オフィスビル</h3></div>
+                    <!-- Row 3 -->
+                    <div class="portfolio-item square reveal">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1974&auto=format&fit=crop" alt="モダンリビング">
+                        <div class="portfolio-info">
+                            <h3>ミニマル・リビング</h3>
+                            <p>内観 / 2024</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item square reveal" style="transition-delay: 0.1s;">
+                        <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?q=80&w=2070&auto=format&fit=crop" alt="高級マンション外観">
+                        <div class="portfolio-info">
+                            <h3>リバーサイド・レジデンス</h3>
+                            <p>外観 / 2023</p>
+                        </div>
+                    </div>
+                    <!-- Row 4 -->
+                    <div class="portfolio-item small reveal">
+                        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop" alt="オフィスラウンジ">
+                        <div class="portfolio-info">
+                            <h3>クリエイティブ・ラウンジ</h3>
+                            <p>オフィス / 2024</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item small reveal" style="transition-delay: 0.1s;">
+                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" alt="ダイニング">
+                        <div class="portfolio-info">
+                            <h3>サンセット・ダイニング</h3>
+                            <p>内観 / 2023</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item small reveal" style="transition-delay: 0.2s;">
+                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2071&auto=format&fit=crop" alt="モダンヴィラ">
+                        <div class="portfolio-info">
+                            <h3>フォレスト・ヴィラ</h3>
+                            <p>外観 / 2024</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="testimonials" class="section">
+        <!-- 価格案内 -->
+        <section id="pricing" class="section">
             <div class="container">
-                <h2 class="section-title">お客様の声</h2>
-                <div class="testimonial-grid">
-                    <div class="testimonial-item">
-                        <p>「想像を遥かに超えるクオリティでした。クライアントへのプレゼンが非常にスムーズに進み、プロジェクト受注に繋がりました。」</p>
-                        <div class="testimonial-author">
-                            <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=300" alt="お客様の顔写真">
-                            <div class="author-info">
-                                <h4>山田 太郎 様</h4>
-                                <span>株式会社A 設計事務所</span>
+                <span class="section-label reveal">価格案内</span>
+                <h2 class="reveal" style="font-size: 2.2rem; margin-bottom: 80px; font-weight: 400; line-height: 1.3;">空間の価値を定義する、<br>透明性の高いプラン。</h2>
+                
+                <div class="pricing-grid">
+                    <!-- 内観パース -->
+                    <div class="pricing-card reveal">
+                        <h3>内観パース</h3>
+                        <div class="price-container">
+                            <span class="price-value">¥30,000<small style="font-size: 0.3em; margin-left: 5px;">〜</small></span>
+                            <span class="price-unit">高品質インテリアビジュアル / 1カット</span>
+                        </div>
+                        <ul class="price-list">
+                            <li>住宅・店舗・オフィス等</li>
+                            <li>大型施設・環境・ファサード等</li>
+                            <li>修正対応（2回まで）無料</li>
+                        </ul>
+                        <a href="#info" class="btn" style="width: 100%; border-color: rgba(255,255,255,0.1); text-align: center; padding: 15px;">お問い合わせ</a>
+                    </div>
+
+                    <!-- 外観パース (推奨) -->
+                    <div class="pricing-card featured reveal" style="transition-delay: 0.1s;">
+                        <h3>外観パース</h3>
+                        <div class="price-container">
+                            <span class="price-value">¥35,000<small style="font-size: 0.3em; margin-left: 5px;">〜</small></span>
+                            <span class="price-unit">フォトリアルな建築外観 / 1カット</span>
+                        </div>
+                        <ul class="price-list">
+                            <li>商業施設・環境・ファサード等</li>
+                            <li>大型施設・ビル・マンション等</li>
+                            <li>シネマティック仕上げ標準</li>
+                        </ul>
+                        <a href="#info" class="btn" style="width: 100%; text-align: center; padding: 15px; border-color: var(--accent-color);">お問い合わせ</a>
+                    </div>
+
+                    <!-- VR・360度体験 -->
+                    <div class="pricing-card reveal" style="transition-delay: 0.2s;">
+                        <h3>VR・360度体験</h3>
+                        <div class="price-container">
+                            <span class="price-value">¥150,000<small style="font-size: 0.3em; margin-left: 5px;">〜</small></span>
+                            <span class="price-unit">没入型バーチャルツアー / 1シーン</span>
+                        </div>
+                        <ul class="price-list">
+                            <li>Web埋め込み対応可能</li>
+                            <li>インタラクティブ機能込み</li>
+                            <li>高画質パノラマ出力込み</li>
+                        </ul>
+                        <a href="#info" class="btn" style="width: 100%; border-color: rgba(255,255,255,0.1); text-align: center; padding: 15px;">お問い合わせ</a>
+                    </div>
+                </div>
+
+                <!-- オプションサービス -->
+                <div class="options-container reveal">
+                    <h3 class="options-title">オプションサービス</h3>
+                    <div class="options-grid">
+                        <div class="option-item">
+                            <div class="option-icon">✎</div>
+                            <div class="option-content">
+                                <div class="option-header">
+                                    <span class="option-name">修正1回追加</span>
+                                    <span class="option-price">¥3,000〜</span>
+                                </div>
+                                <p class="option-desc">プランに含まれる修正回数を超える場合の追加対応。小規模な色味変更や微調整が可能です。</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <p>「タイトなスケジュールにも関わらず、迅速かつ丁寧に対応いただきました。コミュニケーションも円滑で、安心して任せられました。」</p>
-                        <div class="testimonial-author">
-                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=300" alt="お客様の顔写真">
-                            <div class="author-info">
-                                <h4>佐藤 花子 様</h4>
-                                <span>B不動産株式会社</span>
+                        <div class="option-item">
+                            <div class="option-icon">🌳</div>
+                            <div class="option-content">
+                                <div class="option-header">
+                                    <span class="option-name">添景合成</span>
+                                    <span class="option-price">¥3,000〜</span>
+                                </div>
+                                <p class="option-desc">パース内に生活感や利用シーンを演出する添景を合成。商業施設・店舗に特におすすめです。</p>
+                            </div>
+                        </div>
+                        <div class="option-item">
+                            <div class="option-icon">🎥</div>
+                            <div class="option-content">
+                                <div class="option-header">
+                                    <span class="option-name">アングル追加</span>
+                                    <span class="option-price">1カット分</span>
+                                </div>
+                                <p class="option-desc">新しい視点を追加して複数カットでの制作。1アングルごとに各プラン1カット料金としてカウントされます。</p>
+                            </div>
+                        </div>
+                        <div class="option-item">
+                            <div class="option-icon">▶</div>
+                            <div class="option-content">
+                                <div class="option-header">
+                                    <span class="option-name">ウォークスルー動画</span>
+                                    <span class="option-price">¥50,000</span>
+                                </div>
+                                <p class="option-desc">建築空間内を歩くようなアニメーション動画を制作。プレゼンや販促に絶大な効果を発揮します。</p>
+                            </div>
+                        </div>
+                        <div class="option-item" style="grid-column: span 2;">
+                            <div class="option-icon">🕹</div>
+                            <div class="option-content">
+                                <div class="option-header">
+                                    <span class="option-name">360°実行ファイル（リアルタイム）</span>
+                                    <span class="option-price">¥50,000〜</span>
+                                </div>
+                                <p class="option-desc">視点を自由に操作できるリアルタイム体験。PCで操作可能な実行ファイル形式で納品。</p>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- 修正と変更の違いについて -->
+                <div class="correction-container reveal" style="margin-top: 60px;">
+                    <h3 class="options-title" style="font-size: 1.4rem; margin-bottom: 40px;">修正と変更の違いについて</h3>
+                    <div class="correction-grid">
+                        <div class="correction-box">
+                            <h4 class="correction-title">修正 <span class="correction-subtitle">Correction</span></h4>
+                            <p class="correction-desc">
+                                色味や明るさ、影の濃さ、質感などの<span class="highlight-text">【軽微な微調整】</span>を指します。<br>
+                                簡単な調整や仕上がりの印象に関するご要望が対象となります。
+                            </p>
+                        </div>
+                        <div class="correction-box change">
+                            <h4 class="correction-title">変更 <span class="correction-subtitle">Change</span></h4>
+                            <p class="correction-desc">
+                                カメラアングルの変更・家具や構成の大幅な入れ替え、デザインの見直しや新しい要素の追加を伴う場合。<br>
+                                間取りや、建物の形状の変更、全く新しいマテリアルの使用、または新たな視点からのパース作成などが含まれます。<br>
+                                <span class="alert-text">※これらは追加料金の対象となります。</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="pricing-note reveal">
+                    ※価格はプロジェクトの規模や難易度により変動いたします。詳細はお気軽にお問い合わせください。
+                </p>
             </div>
         </section>
 
-        <section id="contact" class="section">
+        <!-- スタジオ情報 -->
+        <section id="info" class="section">
             <div class="container">
-                <h2 class="section-title">お問い合わせ</h2>
-                <form class="contact-form" action="#" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="お名前" required>
+                <div class="info-layout">
+                    <div class="reveal">
+                        <span class="section-label">お問い合わせ</span>
+                        <h2 style="font-size: 2.2rem; margin-bottom: 45px; font-weight: 400; line-height: 1.4;">Beyond CG STUDIOと<br>繋がる。</h2>
+                        <p style="color: var(--secondary-color); margin-bottom: 70px; max-width: 500px; font-weight: 300;">
+                            新しいプロジェクトの始まりは、対話から生まれます。日本全国、および世界中のクライアント様と、リモート・対面を問わずシームレスな制作体制を整えています。
+                        </p>
+                        
+                        <div class="info-details">
+                            <div class="info-block">
+                                <h4>メール</h4>
+                                <a href="mailto:beyondinfo856@gmail.com">beyondinfo856@gmail.com</a>
+                            </div>
+                            <div class="info-block">
+                                <h4>電話番号</h4>
+                                <a href="tel:08097140208">080-9714-0208</a>
+                            </div>
+                            <div class="info-block">
+                                <h4>所在地</h4>
+                                <p>大阪市西区江戸堀2-7-32</p>
+                            </div>
+                        </div>
+
+                        <!-- 運営者情報 -->
+                        <div class="operator-info reveal">
+                            <h4 class="operator-title">運営者情報</h4>
+                            <dl class="operator-list">
+                                <dt>屋号</dt><dd>Beyond CG Studio</dd>
+                                <dt>代表</dt><dd>江藤ブライアン</dd>
+                                <dt>拠点</dt><dd>大阪府</dd>
+                                <dt>登録番号</dt><dd>適格請求書発行事業者</dd>
+                                <dt>使用ソフト</dt><dd>Rhinoceros / SketchUp / VectorWorks / Photoshop 他</dd>
+                            </dl>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="メールアドレス" required>
+                    
+                    <div class="reveal">
+                        <div class="studio-map">
+                            <div style="position: absolute; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=2033&auto=format&fit=crop') center/cover; opacity: 0.25; filter: grayscale(1);"></div>
+                            <div style="width: 14px; height: 14px; background: var(--accent-color); border-radius: 50%; box-shadow: 0 0 30px var(--accent-color); z-index: 1;"></div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder="お問い合わせ内容" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">送信</button>
-                </form>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer class="main-footer">
+    <footer>
         <div class="container">
-            <p>&copy; 2026 Beyond CG Studio. All Rights Reserved.</p>
+            <a href="#" class="logo">Beyond CG STUDIO</a>
+            <p class="copyright">&copy; 2026 Beyond CG STUDIO. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 80) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
