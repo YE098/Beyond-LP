@@ -3,21 +3,436 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beyond CG Studio - Test LP</title>
+    <title>Beyond CG Studio - 最高品質の建築ビジュアライゼーション</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; background: #f4f4f4; }
-        .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: inline-block; }
-        h1 { color: #333; }
-        p { color: #666; }
-        .btn { display: inline-block; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-top: 20px; }
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #f0f0f0;
+            --accent-color: #c0a062;
+            --text-color: #dcdcdc;
+            --bg-color: #121212;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+
+        /* Header */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .main-nav a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 300;
+            transition: color 0.3s, border-bottom 0.3s;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .main-nav a:hover {
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1588854337236-6889d631f375?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=3600') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 35px;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #d4b57a;
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
+        .section {
+            padding: 120px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 80px;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .service-item {
+            background: var(--primary-color);
+            padding: 40px;
+            text-align: center;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .service-item .icon {
+            font-size: 48px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .service-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        /* Portfolio Section */
+        #portfolio {
+            background: var(--primary-color);
+        }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+            opacity: 1;
+            transition: opacity 0.4s;
+        }
+        .portfolio-overlay h3 {
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+
+        /* Testimonials Section */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        .testimonial-item {
+            background: var(--primary-color);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid var(--accent-color);
+        }
+        .testimonial-item p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        .author-info h4 {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--secondary-color);
+        }
+        .author-info span {
+            font-size: 0.9em;
+            color: var(--accent-color);
+        }
+
+        /* Contact Section */
+        #contact {
+            background: var(--primary-color);
+        }
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: var(--bg-color);
+            border: 1px solid #333;
+            border-radius: 5px;
+            color: var(--text-color);
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #d4b57a;
+        }
+
+        /* Footer */
+        .main-footer {
+            background: #000;
+            padding: 40px 0;
+            text-align: center;
+        }
+        .main-footer p {
+            color: #888;
+            font-size: 0.9em;
+        }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Beyond CG Studio</h1>
-        <p>建築ビジュアライゼーションのテスト公開ページです。</p>
-        <p>現在はCloudflare Pagesのテスト中です。</p>
-        <a href="#" class="btn">お問い合わせ（テスト）</a>
-    </div>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">Beyond CG</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#services">サービス</a></li>
+                    <li><a href="#portfolio">制作実績</a></li>
+                    <li><a href="#testimonials">お客様の声</a></li>
+                    <li><a href="#contact">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>空間に、生命を吹き込む。</h1>
+                <p>Beyond CG Studioは、単なるビジュアライゼーションを超え、感動を呼ぶ建築CGを創造します。</p>
+                <a href="#contact" class="cta-button">プロジェクトのご相談はこちら</a>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <div class="container">
+                <h2 class="section-title">サービス</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="icon">🏙️</div>
+                        <h3>建築CGパース</h3>
+                        <p>写真と見紛うほどのリアリティで、未完成の建築プロジェクトを可視化。光、影、質感を緻密に計算し、最高のビジュアルを制作します。</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="icon">🎬</div>
+                        <h3>ウォークスルー動画</h3>
+                        <p>空間を実際に歩いているかのような没入感あふれるアニメーションを制作。プレゼンテーションやマーケティングに絶大な効果を発揮します。</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="icon">🛋️</div>
+                        <h3>インテリアCG</h3>
+                        <p>家具や照明、素材のディテールに至るまで、理想のインテリア空間をCGで具現化。多様なデザインバリエーションを瞬時に比較検討できます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="section">
+            <div class="container">
+                <h2 class="section-title">制作実績</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1800" alt="モダンな住宅の外観パース">
+                        <div class="portfolio-overlay"><h3>プロジェクトA：都心の邸宅</h3></div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1800" alt="ラグジュアリーホテルのロビー">
+                        <div class="portfolio-overlay"><h3>プロジェクトB：リゾートホテル</h3></div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1800" alt="商業施設のインテリア">
+                        <div class="portfolio-overlay"><h3>プロジェクトC：商業施設</h3></div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1800" alt="オフィスビルの外観">
+                        <div class="portfolio-overlay"><h3>プロジェクトD：オフィスビル</h3></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section">
+            <div class="container">
+                <h2 class="section-title">お客様の声</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-item">
+                        <p>「想像を遥かに超えるクオリティでした。クライアントへのプレゼンが非常にスムーズに進み、プロジェクト受注に繋がりました。」</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=300" alt="お客様の顔写真">
+                            <div class="author-info">
+                                <h4>山田 太郎 様</h4>
+                                <span>株式会社A 設計事務所</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>「タイトなスケジュールにも関わらず、迅速かつ丁寧に対応いただきました。コミュニケーションも円滑で、安心して任せられました。」</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=300" alt="お客様の顔写真">
+                            <div class="author-info">
+                                <h4>佐藤 花子 様</h4>
+                                <span>B不動産株式会社</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">お問い合わせ</h2>
+                <form class="contact-form" action="#" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="お名前" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="メールアドレス" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="お問い合わせ内容" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">送信</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2026 Beyond CG Studio. All Rights Reserved.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
