@@ -38,6 +38,10 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        body.menu-open {
+            overflow: hidden;
+        }
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -126,6 +130,29 @@
 
         .nav-links a:hover {
             color: var(--accent-color);
+        }
+
+        .menu-toggle,
+        .mobile-nav-contact {
+            display: none;
+        }
+
+        .menu-toggle {
+            width: 44px;
+            height: 44px;
+            padding: 10px;
+            border: 0;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 1px;
+            margin: 6px 0;
+            background: var(--primary-color);
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         /* ヒーロー */
@@ -701,15 +728,191 @@
         }
 
         @media (max-width: 968px) {
-            .services-grid, .info-layout, .pricing-grid, .options-grid { grid-template-columns: 1fr; gap: 40px; }
-            .portfolio-grid { grid-template-columns: 1fr; }
-            .portfolio-item.large, .portfolio-item.medium, .portfolio-item.wide, .portfolio-item.square, .portfolio-item.small { grid-column: span 1; height: 400px; }
-            .nav-links { display: none; }
-            header .logo { font-size: 1.25rem; }
-            .hero h1 { font-size: 3rem; }
-            .container { padding: 0 25px; }
-            .pricing-card { padding: 50px 30px; }
-            .operator-list { grid-template-columns: 100px 1fr; }
+            html { scroll-padding-top: 80px; }
+            header,
+            header.scrolled { padding: 18px 0; }
+            header.scrolled { backdrop-filter: blur(12px); }
+            .container { padding: 0 22px; }
+            .header-content { position: relative; }
+            header .logo {
+                position: relative;
+                z-index: 1002;
+                max-width: calc(100% - 65px);
+                font-size: clamp(1rem, 5vw, 1.25rem);
+                letter-spacing: 0.08em;
+                line-height: 1.2;
+                white-space: nowrap;
+            }
+            .header-contact { display: none; }
+            .menu-toggle {
+                position: relative;
+                z-index: 1002;
+                display: block;
+                flex: 0 0 44px;
+            }
+            header nav {
+                position: fixed;
+                top: 0;
+                right: 0;
+                z-index: 1001;
+                width: min(82vw, 360px);
+                height: 100vh;
+                height: 100dvh;
+                padding: 110px 35px 40px;
+                background: rgba(10, 10, 10, 0.98);
+                border-left: 1px solid rgba(255,255,255,0.08);
+                transform: translateX(100%);
+                visibility: hidden;
+                transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), visibility 0.4s;
+            }
+            header.menu-open nav {
+                transform: translateX(0);
+                visibility: visible;
+            }
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+            }
+            .nav-links li { border-bottom: 1px solid rgba(255,255,255,0.08); }
+            .nav-links a {
+                display: block;
+                padding: 18px 0;
+                color: var(--primary-color);
+                font-size: 0.95rem;
+            }
+            .mobile-nav-contact { display: list-item; }
+            header.menu-open .menu-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+            header.menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
+            header.menu-open .menu-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+            .hero {
+                min-height: 650px;
+                height: 100vh;
+                height: 100svh;
+            }
+            .hero-content { padding-top: 70px; }
+            .hero h1 {
+                font-size: clamp(2.15rem, 10.5vw, 3rem);
+                line-height: 1.2;
+                margin-bottom: 28px;
+            }
+            .hero p {
+                max-width: 100%;
+                margin-bottom: 38px;
+                font-size: 0.95rem;
+                line-height: 1.9;
+            }
+            .hero .btn { padding: 17px 30px; }
+            .section { padding: 95px 0; }
+            .section-label {
+                letter-spacing: 0.24em;
+                line-height: 1.6;
+            }
+            .services-grid,
+            .info-layout,
+            .pricing-grid,
+            .options-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+            .services-grid { gap: 50px; }
+            .service-card { padding-top: 30px; }
+
+            .portfolio-grid {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 18px;
+            }
+            .portfolio-item.large,
+            .portfolio-item.medium,
+            .portfolio-item.wide,
+            .portfolio-item.square,
+            .portfolio-item.small {
+                grid-column: span 1;
+                width: 100%;
+                height: clamp(260px, 78vw, 390px);
+            }
+            .portfolio-item img { filter: brightness(0.85); }
+            .portfolio-info {
+                padding: 70px 22px 22px;
+                opacity: 1;
+                transform: none;
+            }
+            .portfolio-info h3 { font-size: 1rem; }
+
+            #pricing h2 {
+                margin-bottom: 45px !important;
+                font-size: 1.8rem !important;
+            }
+            .pricing-grid { margin-top: 0; }
+            .pricing-card { padding: 45px 25px; }
+            .price-value { font-size: clamp(2.15rem, 11vw, 3rem); }
+            .options-container {
+                margin-top: 80px;
+                padding: 50px 18px;
+            }
+            .options-title {
+                margin-bottom: 40px;
+                font-size: 1.45rem;
+            }
+            .option-item,
+            .option-item[style] {
+                grid-column: span 1 !important;
+                padding: 24px 20px;
+            }
+            .option-header {
+                flex-wrap: wrap;
+                gap: 5px 18px;
+            }
+            .option-price { white-space: nowrap; }
+            .correction-grid { gap: 22px; }
+            .correction-box { padding: 28px 22px; }
+            .pricing-note { margin-top: 50px; }
+
+            .info-layout { gap: 70px; }
+            .info-details {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 35px;
+            }
+            .info-block a,
+            .info-block p {
+                overflow-wrap: anywhere;
+            }
+            .operator-list {
+                grid-template-columns: 88px minmax(0, 1fr);
+                gap: 14px 20px;
+                font-size: 0.82rem;
+            }
+            .operator-list dd { overflow-wrap: anywhere; }
+            .studio-map { height: 320px; }
+            .lightbox { padding: 70px 16px 24px; }
+            .lightbox-image { max-height: calc(100svh - 145px); }
+            .lightbox-caption {
+                font-size: 0.78rem;
+                line-height: 1.6;
+            }
+            footer { padding: 75px 0; }
+            footer .logo {
+                display: inline-block;
+                font-size: 1.2rem;
+                letter-spacing: 0.08em;
+            }
+            .copyright {
+                margin-top: 20px;
+                line-height: 1.7;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .container { padding: 0 18px; }
+            header .logo { font-size: 0.98rem; }
+            .hero h1 { font-size: 2rem; }
+            .btn { padding-right: 24px; padding-left: 24px; }
+            .pricing-card { padding-right: 20px; padding-left: 20px; }
+            .option-item { flex-direction: column; gap: 12px; }
+            .operator-list {
+                grid-template-columns: 1fr;
+                gap: 5px;
+            }
+            .operator-list dd { margin-bottom: 12px; }
         }
     </style>
 </head>
@@ -718,15 +921,21 @@
     <header id="main-header">
         <div class="container header-content">
             <a href="#" class="logo">Beyond CG Studio</a>
-            <nav>
+            <nav id="main-navigation">
                 <ul class="nav-links">
                     <li><a href="#services">サービス</a></li>
                     <li><a href="#portfolio">制作実績</a></li>
                     <li><a href="#pricing">価格案内</a></li>
                     <li><a href="#info">スタジオ</a></li>
+                    <li class="mobile-nav-contact"><a href="#info">お問い合わせ</a></li>
                 </ul>
             </nav>
-            <a href="#info" class="btn" style="padding: 12px 30px; font-size: 0.65rem;">お問い合わせ</a>
+            <a href="#info" class="btn header-contact" style="padding: 12px 30px; font-size: 0.65rem;">お問い合わせ</a>
+            <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-controls="main-navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
@@ -779,7 +988,7 @@
                         </div>
                     </div>
                     <div class="portfolio-item medium reveal" style="transition-delay: 0.1s;">
-                        <img src=" https://YE098.github.io/beyond-cg-images/project03.webp" alt="キッチン">
+                        <img src="https://YE098.github.io/beyond-cg-images/project03.webp" alt="キッチン">
                         <div class="portfolio-info">
                             <h3>鶴橋 韓国料理屋</h3>
                             <p>内観 / 2025</p>
@@ -1043,10 +1252,35 @@
     </div>
 
     <script>
+        const header = document.getElementById('main-header');
+        const menuToggle = header.querySelector('.menu-toggle');
+        const navigation = document.getElementById('main-navigation');
+
         window.addEventListener('scroll', () => {
-            const header = document.getElementById('main-header');
             if (window.scrollY > 80) header.classList.add('scrolled');
             else header.classList.remove('scrolled');
+        });
+
+        const closeMenu = () => {
+            header.classList.remove('menu-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.setAttribute('aria-label', 'メニューを開く');
+            document.body.classList.remove('menu-open');
+        };
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = header.classList.toggle('menu-open');
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
+            menuToggle.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+            document.body.classList.toggle('menu-open', isOpen);
+        });
+
+        navigation.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 968) closeMenu();
         });
 
         const observerOptions = {
@@ -1117,6 +1351,9 @@
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape' && lightbox.classList.contains('active')) {
                 closeLightbox();
+            } else if (event.key === 'Escape' && header.classList.contains('menu-open')) {
+                closeMenu();
+                menuToggle.focus();
             }
         });
     </script>
