@@ -119,6 +119,10 @@
             list-style: none;
         }
 
+        header nav {
+            margin-left: auto;
+        }
+
         .nav-links a {
             text-decoration: none;
             color: var(--secondary-color);
@@ -132,8 +136,7 @@
             color: var(--accent-color);
         }
 
-        .menu-toggle,
-        .mobile-nav-contact {
+        .menu-toggle {
             display: none;
         }
 
@@ -782,7 +785,6 @@
                 color: var(--primary-color);
                 font-size: 0.95rem;
             }
-            .mobile-nav-contact { display: list-item; }
             header.menu-open .menu-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
             header.menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
             header.menu-open .menu-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -927,10 +929,9 @@
                     <li><a href="#portfolio">制作実績</a></li>
                     <li><a href="#pricing">価格案内</a></li>
                     <li><a href="#info">スタジオ</a></li>
-                    <li class="mobile-nav-contact"><a href="#info">お問い合わせ</a></li>
+                    <li><a href="#info">お問い合わせ</a></li>
                 </ul>
             </nav>
-            <a href="#info" class="btn header-contact" style="padding: 12px 30px; font-size: 0.65rem;">お問い合わせ</a>
             <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-controls="main-navigation" aria-expanded="false">
                 <span></span>
                 <span></span>
