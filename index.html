@@ -228,6 +228,7 @@
             position: relative;
             overflow: hidden;
             background: var(--surface-color);
+            cursor: zoom-in;
         }
 
         .portfolio-item.large { grid-column: span 8; height: 650px; }
@@ -278,6 +279,77 @@
             color: var(--accent-color);
             text-transform: uppercase;
             letter-spacing: 0.1em;
+        }
+
+        /* 画像拡大表示 */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 70px 30px 30px;
+            background: rgba(0, 0, 0, 0.94);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-content {
+            max-width: min(1400px, 100%);
+            max-height: 100%;
+            text-align: center;
+        }
+
+        .lightbox-image {
+            display: block;
+            max-width: 100%;
+            max-height: calc(100vh - 150px);
+            margin: 0 auto;
+            object-fit: contain;
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.55);
+            transform: scale(0.96);
+            transition: transform 0.35s ease;
+        }
+
+        .lightbox.active .lightbox-image {
+            transform: scale(1);
+        }
+
+        .lightbox-caption {
+            margin-top: 18px;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.25);
+            color: #fff;
+            font-size: 1.8rem;
+            line-height: 1;
+            cursor: pointer;
+            transition: border-color 0.25s ease, color 0.25s ease;
+        }
+
+        .lightbox-close:hover,
+        .lightbox-close:focus-visible {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+            outline: none;
         }
 
         /* 価格表 */
@@ -957,6 +1029,14 @@
         </div>
     </footer>
 
+    <div class="lightbox" id="portfolio-lightbox" role="dialog" aria-modal="true" aria-label="制作実績の拡大画像" aria-hidden="true">
+        <button class="lightbox-close" type="button" aria-label="拡大画像を閉じる">&times;</button>
+        <figure class="lightbox-content">
+            <img class="lightbox-image" src="" alt="">
+            <figcaption class="lightbox-caption"></figcaption>
+        </figure>
+    </div>
+
     <script>
         window.addEventListener('scroll', () => {
             const header = document.getElementById('main-header');
@@ -979,6 +1059,60 @@
 
         document.querySelectorAll('.reveal').forEach(el => {
             observer.observe(el);
+        });
+
+        const lightbox = document.getElementById('portfolio-lightbox');
+        const lightboxImage = lightbox.querySelector('.lightbox-image');
+        const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        const lightboxClose = lightbox.querySelector('.lightbox-close');
+        let lastFocusedItem = null;
+
+        const openLightbox = (item) => {
+            const image = item.querySelector('img');
+            const title = item.querySelector('.portfolio-info h3')?.textContent || image.alt;
+            const category = item.querySelector('.portfolio-info p')?.textContent || '';
+
+            lastFocusedItem = item;
+            lightboxImage.src = image.src;
+            lightboxImage.alt = image.alt;
+            lightboxCaption.textContent = category ? `${title} — ${category}` : title;
+            lightbox.classList.add('active');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            lightboxClose.focus();
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            lightbox.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            lightboxImage.src = '';
+            lastFocusedItem?.focus();
+        };
+
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            item.setAttribute('role', 'button');
+            item.setAttribute('tabindex', '0');
+            item.setAttribute('aria-label', `${item.querySelector('.portfolio-info h3')?.textContent || '制作実績'}を拡大表示`);
+
+            item.addEventListener('click', () => openLightbox(item));
+            item.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openLightbox(item);
+                }
+            });
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
         });
     </script>
 </body>
