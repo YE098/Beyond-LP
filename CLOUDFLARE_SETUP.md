@@ -14,16 +14,16 @@
 
 ## Cloudflareの変数とシークレット
 
-Cloudflare Dashboardで対象Workerの「設定」→「変数とシークレット」から設定します。
+公開しても問題のない設定値は`wrangler.jsonc`で管理します。`TURNSTILE_SECRET_KEY`と`RESEND_API_KEY`だけは、Cloudflare Dashboardで対象Workerの「設定」→「変数とシークレット」からシークレットとして設定します。
 
 | 名前 | 種別 | 内容 |
 | --- | --- | --- |
-| `TURNSTILE_SITE_KEY` | 変数 | Turnstileのサイトキー |
+| `TURNSTILE_SITE_KEY` | `wrangler.jsonc` | Turnstileのサイトキー |
 | `TURNSTILE_SECRET_KEY` | シークレット | Turnstileのシークレットキー |
 | `RESEND_API_KEY` | シークレット | ResendのAPIキー |
-| `CONTACT_TO_EMAIL` | 変数 | 問い合わせの受信先 |
-| `CONTACT_FROM_EMAIL` | 変数 | `Beyond CG Studio <contact@example.com>`形式の送信元 |
-| `ALLOWED_HOSTNAME` | 変数 | `lp.beyondinfo856.workers.dev`（`https://`や末尾の`/`は不要） |
+| `CONTACT_TO_EMAIL` | `wrangler.jsonc` | 問い合わせの受信先 |
+| `CONTACT_FROM_EMAIL` | `wrangler.jsonc` | `Beyond CG Studio <contact@example.com>`形式の送信元 |
+| `ALLOWED_HOSTNAME` | `wrangler.jsonc` | `lp.beyondinfo856.workers.dev`（`https://`や末尾の`/`は不要） |
 
 シークレットはHTML、Git、`wrangler.jsonc`へ保存しないでください。
 
@@ -31,7 +31,7 @@ Cloudflare Dashboardで対象Workerの「設定」→「変数とシークレッ
 
 Git連携の本番ブランチを`main`、デプロイコマンドを`npx wrangler deploy`、ルートディレクトリを`/`に設定します。
 
-`main`へプッシュすると、`wrangler.jsonc`を使ってWorkerコードと静的ファイルが一緒にデプロイされます。既にDashboardで登録済みの変数とシークレットが実行時に使用されます。
+`main`へプッシュすると、`wrangler.jsonc`を使ってWorkerコードと静的ファイルが一緒にデプロイされます。`keep_vars`を有効にしているため、Dashboardで登録したシークレットは維持されます。
 
 ## 動作確認
 

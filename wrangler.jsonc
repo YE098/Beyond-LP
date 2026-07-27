@@ -3,6 +3,13 @@
     "name": "lp",
     "main": "worker.js",
     "compatibility_date": "2026-07-27",
+    "keep_vars": true,
+    "vars": {
+        "TURNSTILE_SITE_KEY": "0x4AAAAAAD-pn0_IQVtJiwEm",
+        "CONTACT_TO_EMAIL": "beyondinfo856@gmail.com",
+        "CONTACT_FROM_EMAIL": "Beyond CG Studio <onboarding@resend.dev>",
+        "ALLOWED_HOSTNAME": "lp.beyondinfo856.workers.dev"
+    },
     "assets": {
         "directory": ".",
         "binding": "ASSETS",
