@@ -13,6 +13,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://beyondcgstudio.com/works</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://beyondcgstudio.com/privacy</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>yearly</changefreq>
