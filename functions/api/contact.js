@@ -5,6 +5,11 @@ const FIELD_LIMITS = {
     email: 254,
     phone: 40,
     service: 100,
+    projectType: 100,
+    cuts: 40,
+    deadline: 100,
+    drawingStatus: 100,
+    budget: 100,
     message: 5_000,
     website: 200,
     turnstileToken: 2_500
@@ -38,7 +43,7 @@ const verifyTurnstile = async ({ secret, token, remoteIp }) => {
     return response.json();
 };
 
-const buildEmailText = ({ name, company, email, phone, service, message }) => [
+const buildEmailText = ({ name, company, email, phone, service, projectType, cuts, deadline, drawingStatus, budget, message }) => [
     'Beyond CG Studio Webサイトからお問い合わせが届きました。',
     '',
     `お名前: ${name}`,
@@ -46,6 +51,11 @@ const buildEmailText = ({ name, company, email, phone, service, message }) => [
     `メールアドレス: ${email}`,
     `電話番号: ${phone || '未入力'}`,
     `ご希望のサービス: ${service}`,
+    `物件種別・用途: ${projectType || '未入力'}`,
+    `希望カット数: ${cuts || '未入力'}`,
+    `希望納期: ${deadline || '未入力'}`,
+    `図面の準備状況: ${drawingStatus || '未入力'}`,
+    `ご予算: ${budget || '未入力'}`,
     '',
     'ご相談内容:',
     message
