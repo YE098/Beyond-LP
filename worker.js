@@ -24,6 +24,11 @@ export default {
     async fetch(request, env) {
         const url = new URL(request.url);
 
+        if (url.hostname === 'www.beyondcgstudio.com') {
+            url.hostname = 'beyondcgstudio.com';
+            return Response.redirect(url.toString(), 308);
+        }
+
         if (url.pathname === '/api/contact') {
             if (request.method !== 'POST') return methodNotAllowed('POST');
             return handleContactPost({ request, env });

@@ -4,11 +4,28 @@
     "main": "worker.js",
     "compatibility_date": "2026-07-27",
     "keep_vars": true,
+    "workers_dev": true,
+    "preview_urls": true,
+    "observability": {
+        "logs": {
+            "enabled": true
+        }
+    },
+    "routes": [
+        {
+            "pattern": "beyondcgstudio.com",
+            "custom_domain": true
+        },
+        {
+            "pattern": "www.beyondcgstudio.com",
+            "custom_domain": true
+        }
+    ],
     "vars": {
         "TURNSTILE_SITE_KEY": "0x4AAAAAAD-pn0_IQVtJiwEm",
         "CONTACT_TO_EMAIL": "beyondinfo856@gmail.com",
         "CONTACT_FROM_EMAIL": "Beyond CG Studio <onboarding@resend.dev>",
-        "ALLOWED_HOSTNAME": "lp.beyondinfo856.workers.dev"
+        "ALLOWED_HOSTNAME": "beyondcgstudio.com,www.beyondcgstudio.com,lp.beyondinfo856.workers.dev"
     },
     "assets": {
         "directory": ".",

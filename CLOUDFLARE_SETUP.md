@@ -23,7 +23,7 @@
 | `RESEND_API_KEY` | シークレット | ResendのAPIキー |
 | `CONTACT_TO_EMAIL` | `wrangler.jsonc` | 問い合わせの受信先 |
 | `CONTACT_FROM_EMAIL` | `wrangler.jsonc` | `Beyond CG Studio <contact@example.com>`形式の送信元 |
-| `ALLOWED_HOSTNAME` | `wrangler.jsonc` | `lp.beyondinfo856.workers.dev`（`https://`や末尾の`/`は不要） |
+| `ALLOWED_HOSTNAME` | `wrangler.jsonc` | `beyondcgstudio.com,www.beyondcgstudio.com,lp.beyondinfo856.workers.dev`（許可するホスト名をカンマ区切り。`https://`や末尾の`/`は不要） |
 
 シークレットはHTML、Git、`wrangler.jsonc`へ保存しないでください。
 

@@ -105,7 +105,11 @@ export const onRequestPost = async ({ request, env }) => {
         return jsonResponse({ error: 'セキュリティ確認に失敗しました。時間をおいてお試しください。' }, 502);
     }
 
-    const hostnameMatches = !env.ALLOWED_HOSTNAME || turnstileResult.hostname === env.ALLOWED_HOSTNAME;
+    const allowedHostnames = String(env.ALLOWED_HOSTNAME || '')
+        .split(',')
+        .map(hostname => hostname.trim())
+        .filter(Boolean);
+    const hostnameMatches = allowedHostnames.length === 0 || allowedHostnames.includes(turnstileResult.hostname);
     const actionMatches = !turnstileResult.action || turnstileResult.action === 'contact';
     if (!turnstileResult.success || !hostnameMatches || !actionMatches) {
         return jsonResponse({ error: 'セキュリティ確認を完了してください。' }, 400);
