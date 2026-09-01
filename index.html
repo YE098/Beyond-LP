@@ -1310,6 +1310,8 @@
         }
     </style>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://beyondcgstudio.com/#website","url":"https://beyondcgstudio.com/","name":"Beyond CG Studio","alternateName":"Beyond CG","inLanguage":"ja"}</script>
+<link rel="stylesheet" href="/analytics.css">
+<script src="/analytics.js" defer></script>
 </head>
 <body>
     <a class="skip-link" href="#main-content">本文へ移動</a>
@@ -1988,6 +1990,7 @@
                 if (window.turnstile && turnstileWidgetId !== null) {
                     window.turnstile.reset(turnstileWidgetId);
                 }
+                window.trackAnalyticsEvent?.('generate_lead');
                 setFormStatus('お問い合わせを受け付けました。内容を確認のうえご連絡します。', 'success');
             } catch (error) {
                 const message = error.name === 'AbortError'
