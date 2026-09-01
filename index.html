@@ -193,7 +193,13 @@
             text-decoration: none;
             color: var(--primary-color);
             letter-spacing: 0.15em;
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
         }
+
+        .logo-mark { width: 31px; height: 31px; object-fit: contain; filter: invert(1); flex: 0 0 auto; }
+        header .logo-mark { width: 36px; height: 36px; }
 
         header .logo {
             font-size: 1.8rem;
@@ -372,6 +378,9 @@
             font-family: 'Playfair Display', serif;
             font-size: 0.8rem;
             letter-spacing: 0.15em;
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
         }
 
         .process-step h3 {
@@ -1260,7 +1269,7 @@
             #contact { padding-bottom: 35px; }
             footer { padding: 35px 0 45px; }
             footer .logo {
-                display: inline-block;
+                display: inline-flex;
                 font-size: 1.2rem;
                 letter-spacing: 0.08em;
             }
@@ -1307,7 +1316,7 @@
 
     <header id="main-header">
         <div class="container header-content">
-            <a href="/" class="logo" aria-label="Beyond CG Studio トップへ">Beyond CG Studio</a>
+            <a href="/" class="logo" aria-label="Beyond CG Studio トップへ"><img class="logo-mark" src="/logo-mark.png" alt="" width="36" height="36"><span>Beyond CG Studio</span></a>
             <nav id="main-navigation" aria-label="メインナビゲーション">
                 <ul class="nav-links">
                     <li><a href="/architectural-rendering">サービス</a></li>
@@ -1676,7 +1685,7 @@
 
     <footer>
         <div class="container">
-            <a href="/" class="logo" aria-label="Beyond CG Studio トップへ">Beyond CG Studio</a>
+            <a href="/" class="logo" aria-label="Beyond CG Studio トップへ"><img class="logo-mark" src="/logo-mark.png" alt="" width="36" height="36"><span>Beyond CG Studio</span></a>
             <ul class="social-links" aria-label="公式SNS">
                 <li>
                     <a href="https://www.instagram.com/beyond_cg/" target="_blank" rel="noopener noreferrer" aria-label="Beyond CG StudioのInstagramを新しいタブで開く">
