@@ -8,17 +8,30 @@
 main>section:not(:first-child){padding-top:clamp(92px,6.5vw,108px)!important;padding-bottom:clamp(92px,6.5vw,108px)!important}
 }
 
+/* 下層ページと本文セクションの見出し基準 */
+.section-head h1,.section-head h2{max-width:780px;line-height:1.42!important;letter-spacing:.01em;word-break:keep-all;overflow-wrap:anywhere;text-wrap:balance}
+.section-head h1{font-size:clamp(2.25rem,4.2vw,4rem)!important}
+.section-head h2{font-size:clamp(2rem,3vw,2.75rem)!important}
+.section-head h1 br,.section-head h2 br{display:none}
+.section-head p{max-width:720px;line-height:1.95}
+.card h3,.step h3,.needed h3{line-height:1.55;word-break:keep-all;overflow-wrap:anywhere;text-wrap:balance}
+.cta h2{max-width:780px;margin-left:auto!important;margin-right:auto!important;font-size:clamp(2.1rem,3.5vw,3.25rem)!important;line-height:1.42!important;word-break:keep-all;overflow-wrap:anywhere;text-wrap:balance}
+.cta h2 br{display:none}
+
 @media(max-width:600px){
 html,body{width:100%;max-width:100%;overflow-x:clip}
 body{font-size:.96rem}
 main,section,.container,.hero-content,.section-head,.content-grid{min-width:0;max-width:100%}
-h1,h2,h3,p,li,dd,summary{max-width:100%;overflow-wrap:anywhere;word-break:break-word}
+h1,h2,h3,p,li,dd,summary{max-width:100%;overflow-wrap:anywhere;word-break:normal;line-break:strict}
 header{height:68px!important}
 header .container.nav{width:calc(100% - 28px)!important;padding-left:0!important;padding-right:0!important}
 header .logo{max-width:100%!important;font-size:1.02rem!important;letter-spacing:.03em!important;white-space:nowrap}
 header .logo-mark{width:30px!important;height:30px!important}
 .navlinks .contact{display:none!important}
-.hero h1,.guide-hero h1,.works-page .section-head h1{font-size:clamp(1.78rem,8.2vw,2.15rem)!important;line-height:1.38!important;white-space:normal!important;overflow-wrap:anywhere;word-break:break-all}
+.hero h1,.guide-hero h1,.works-page .section-head h1{font-size:clamp(1.78rem,8.2vw,2.15rem)!important;line-height:1.38!important;white-space:normal!important;overflow-wrap:anywhere;word-break:normal;line-break:strict;text-wrap:balance}
+.section-head h1,.section-head h2{font-size:clamp(1.75rem,8vw,2.15rem)!important;line-height:1.45!important;text-wrap:balance}
+.section-head h1 br,.section-head h2 br,.cta h2 br{display:none}
+.cta h2{font-size:clamp(1.8rem,8vw,2.2rem)!important;line-height:1.48!important}
 .hero .lead,.hero p,.section-head p,.copy p{font-size:.92rem;line-height:1.9}
 section{padding-top:60px!important;padding-bottom:60px!important}
 .button,.buttons .button,.related .button{width:100%;min-height:48px;padding:13px 18px;text-align:center}
