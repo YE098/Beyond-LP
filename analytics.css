@@ -17,7 +17,7 @@
 .site-menu-toggle{display:none}.mobile-sticky-cta{display:none}
 
 /* 実績カードでは画像を文章より大きく見せる */
-.case-card{overflow:hidden}.case-card img{width:calc(100% + 72px)!important;max-width:none!important;margin:-36px -36px 24px!important;aspect-ratio:16/9;object-fit:cover}
+.case-card{overflow:hidden}.case-card img{width:calc(100% + 72px)!important;max-width:none!important;margin:-36px -36px 24px!important;aspect-ratio:16/9;object-fit:cover}.case-card>a{display:inline-block;margin-top:18px;color:#c9a84c;text-underline-offset:5px}
 
 @media(max-width:968px){
 .site-header{height:68px!important}.site-header-inner{width:calc(100% - 32px)!important;margin:auto!important}
