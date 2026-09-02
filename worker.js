@@ -46,6 +46,24 @@ export default {
             return jsonResponse({ error: 'APIが見つかりません。' }, 404);
         }
 
-        return env.ASSETS.fetch(request);
+        const assetResponse = await env.ASSETS.fetch(request);
+        if (!assetResponse.ok || !['GET', 'HEAD'].includes(request.method)) return assetResponse;
+
+        const headers = new Headers(assetResponse.headers);
+        const pathname = url.pathname.toLowerCase();
+        if (/\.(?:webp|png|jpg|jpeg|gif|svg|ico)$/.test(pathname)) {
+            headers.set('Cache-Control', 'public, max-age=604800, stale-while-revalidate=86400');
+        } else if (/\.(?:css|js)$/.test(pathname)) {
+            headers.set('Cache-Control', 'public, max-age=3600, stale-while-revalidate=86400');
+        }
+        headers.set('X-Content-Type-Options', 'nosniff');
+        headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+        headers.set('X-Frame-Options', 'SAMEORIGIN');
+
+        return new Response(assetResponse.body, {
+            status: assetResponse.status,
+            statusText: assetResponse.statusText,
+            headers
+        });
     }
 };
