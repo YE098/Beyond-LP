@@ -27,3 +27,5 @@
 
 !works-images/
 !works-images/*.webp
+!tool-logos/
+!tool-logos/*.png
