@@ -137,7 +137,7 @@
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1280px;
             margin: 0 auto;
             padding: 0 40px;
         }
@@ -350,19 +350,19 @@
         }
 
         .section {
-            padding: 160px 0;
+            padding: 120px 0;
         }
 
         /* サービス */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 80px;
+            gap: 48px;
         }
 
         .service-card {
             border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 45px;
+            padding-top: 32px;
         }
 
         .service-detail-link {
@@ -372,7 +372,7 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
-            margin-top: 45px;
+            margin-top: 30px;
         }
 
         .service-link-row {
@@ -416,7 +416,7 @@
         .portfolio-item.large { grid-column: span 8; height: 650px; }
         .portfolio-item.medium { grid-column: span 4; height: 650px; }
         .portfolio-item.wide { grid-column: span 12; height: 550px; }
-        .portfolio-item.square { grid-column: span 6; height: 500px; }
+        .portfolio-item.square { grid-column: span 6; height: clamp(320px, 32vw, 420px); }
         .portfolio-item.small { grid-column: span 4; height: 400px; }
 
         .portfolio-item img {
@@ -539,12 +539,17 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            margin-top: 50px;
+            margin-top: 36px;
+        }
+
+        #pricing > .container > h2 {
+            font-size: clamp(1.9rem, 3vw, 2.2rem) !important;
+            margin-bottom: 48px !important;
         }
 
         .pricing-card {
             background: var(--surface-color);
-            padding: 60px 30px;
+            padding: 44px 28px;
             border: 1px solid rgba(255,255,255,0.03);
             transition: var(--transition);
             position: relative;
@@ -587,7 +592,7 @@
         }
 
         .price-container {
-            margin-bottom: 40px;
+            margin-bottom: 28px;
             width: 100%;
         }
 
@@ -611,14 +616,14 @@
         .price-list {
             list-style: none;
             width: 100%;
-            margin-bottom: 50px;
+            margin-bottom: 32px;
             flex-grow: 1;
         }
 
         .price-list li {
             font-size: 0.8rem;
             color: var(--secondary-color);
-            padding: 18px 0;
+            padding: 14px 0;
             border-bottom: 1px solid rgba(255,255,255,0.03);
             display: flex;
             flex-direction: column;
@@ -634,15 +639,15 @@
 
         /* オプションセクション */
         .options-container {
-            margin-top: 120px;
+            margin-top: 80px;
             background: rgba(255,255,255,0.01);
-            padding: 80px 40px;
+            padding: 56px 32px;
             border: 1px solid rgba(255,255,255,0.03);
         }
 
         .options-title {
             font-size: 1.8rem;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             font-weight: 400;
             text-align: center;
         }
@@ -656,7 +661,7 @@
         .option-item {
             display: flex;
             gap: 20px;
-            padding: 30px;
+            padding: 24px;
             background: var(--surface-color);
             border: 1px solid rgba(255,255,255,0.03);
             transition: var(--transition);
@@ -708,12 +713,12 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
-            margin-top: 60px;
+            margin-top: 40px;
         }
 
         .correction-box {
             background: var(--surface-color);
-            padding: 40px;
+            padding: 32px;
             border: 1px solid rgba(255,255,255,0.03);
             border-left: 2px solid var(--secondary-color);
         }
@@ -762,7 +767,7 @@
         .pricing-note {
             font-size: 0.75rem;
             color: var(--text-muted);
-            margin-top: 80px;
+            margin-top: 50px;
             text-align: center;
             letter-spacing: 0.05em;
         }
@@ -772,6 +777,10 @@
             background-color: var(--surface-color);
             padding-top: 72px;
             padding-bottom: 72px;
+        }
+
+        .correction-container {
+            margin-top: 48px !important;
         }
 
         .info-layout {
