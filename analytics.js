@@ -90,3 +90,10 @@
         });
     });
 })();
+
+if (/^\/works\/(?!dental-clinic\/?$)[a-z0-9-]+\/?$/.test(window.location.pathname)) {
+    const caseStudyScript = document.createElement('script');
+    caseStudyScript.src = '/case-study-data.js';
+    caseStudyScript.defer = true;
+    document.head.appendChild(caseStudyScript);
+}
