@@ -25,9 +25,11 @@ export default {
         const url = new URL(request.url);
 
         if (
-            url.hostname === 'www.beyondcgstudio.com'
+            url.protocol !== 'https:'
+            || url.hostname === 'www.beyondcgstudio.com'
             || url.hostname === 'lp.beyondinfo856.workers.dev'
         ) {
+            url.protocol = 'https:';
             url.hostname = 'beyondcgstudio.com';
             return Response.redirect(url.toString(), 308);
         }
