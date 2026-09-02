@@ -17,6 +17,7 @@
 !case-study-data.js
 !robots.txt
 !sitemap.xml
+!image-sitemap.xml
 
 !works-images/
 !works-images/*.webp
