@@ -59,6 +59,22 @@
         ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type":"Question","name":"依頼時にはどのような資料が必要ですか？","acceptedAnswer":{"@type":"Answer","text":"平面図・立面図・断面図、仕上表、素材・家具・照明の資料、参考画像などをご用意ください。すべて揃っていない場合も、現在お持ちの資料を確認して必要な情報をご案内します。"}},
+            {"@type":"Question","name":"制作期間はどのくらいですか？","acceptedAnswer":{"@type":"Answer","text":"カット数、空間の規模、必要なモデリング量、資料の準備状況によって異なります。資料確認後、お見積もりとあわせて初稿・納品予定をご案内します。"}},
+            {"@type":"Question","name":"修正2回にはどこまで含まれますか？","acceptedAnswer":{"@type":"Answer","text":"色味、明るさ、影の濃さ、質感など、当初の制作範囲内の軽微な調整を2回まで含みます。カメラアングル、間取り、建物形状、家具構成などの大幅な変更は別途お見積もりします。"}},
+            {"@type":"Question","name":"3回目以降の修正や大幅な変更はいくらですか？","acceptedAnswer":{"@type":"Answer","text":"軽微な追加修正は1回3,000円から承ります。アングル変更、形状変更、構成の見直し、新しい要素の追加などは内容を確認して個別にお見積もりします。"}},
+            {"@type":"Question","name":"図面が揃っていなくても相談できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。ラフスケッチ、参考写真、既存図面など、現在お持ちの資料からご相談いただけます。不足情報と制作可能な範囲を確認してご案内します。"}},
+            {"@type":"Question","name":"どのようなファイル形式の資料を送れますか？","acceptedAnswer":{"@type":"Answer","text":"PDFや画像資料を基本に受け付けています。CADデータや3Dモデルをお持ちの場合は、ソフト名とファイル形式を事前にお知らせください。対応可否を確認します。"}},
+            {"@type":"Question","name":"遠方からでも依頼できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。全国からオンラインで対応しています。資料共有、内容確認、修正指示、納品までメールやオンラインで進められます。"}},
+            {"@type":"Question","name":"納品形式と画像の利用範囲を教えてください。","acceptedAnswer":{"@type":"Answer","text":"画像は用途に応じたサイズと形式で納品します。設計提案、Webサイト、SNS、広告など、予定している媒体を事前にお知らせください。元データの納品や第三者への再配布は、必要な場合に個別にご相談ください。"}}
+        ]
+    }
+    </script>
     <style>
         :root {
             --bg-color: #0a0a0a;
@@ -878,6 +894,65 @@
             gap: 28px 24px;
         }
 
+        .home-faq {
+            background: var(--surface-color);
+        }
+
+        .home-faq-heading {
+            display: grid;
+            grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+            gap: 100px;
+            margin-bottom: 52px;
+        }
+
+        .home-faq-heading h2 {
+            margin-top: 14px;
+            font-size: clamp(2rem, 4vw, 3.4rem);
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        .home-faq-heading p {
+            color: var(--secondary-color);
+            font-size: 0.95rem;
+            line-height: 2;
+        }
+
+        .home-faq-list {
+            border-top: 1px solid rgba(255,255,255,0.14);
+        }
+
+        .home-faq-list details {
+            border-bottom: 1px solid rgba(255,255,255,0.14);
+        }
+
+        .home-faq-list summary {
+            position: relative;
+            padding: 25px 48px 25px 0;
+            list-style: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .home-faq-list summary::-webkit-details-marker { display: none; }
+        .home-faq-list summary::after {
+            content: "+";
+            position: absolute;
+            right: 8px;
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            font-weight: 300;
+        }
+        .home-faq-list details[open] summary::after { content: "−"; }
+        .home-faq-list details p {
+            max-width: 900px;
+            padding: 0 48px 26px 0;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            line-height: 2;
+        }
+
         .form-field {
             min-width: 0;
         }
@@ -1286,6 +1361,7 @@
             .operator-list dd { overflow-wrap: anywhere; }
             .studio-map { height: 320px; }
             .contact-layout { gap: 55px; }
+            .home-faq-heading { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-bottom: 36px; }
             .contact-form { grid-template-columns: minmax(0, 1fr); }
             .form-field.full { grid-column: auto; }
             .form-actions {
@@ -1647,6 +1723,29 @@
                             </iframe>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- よくあるご質問 -->
+        <section id="faq" class="section home-faq">
+            <div class="container">
+                <div class="home-faq-heading reveal">
+                    <div>
+                        <span class="section-label">FAQ</span>
+                        <h2>ご依頼前の<br>よくあるご質問</h2>
+                    </div>
+                    <p>必要な資料、制作期間、修正範囲、納品についてまとめました。まだ条件が決まっていない段階でも、分かる範囲からご相談いただけます。</p>
+                </div>
+                <div class="home-faq-list reveal">
+                    <details><summary>依頼時にはどのような資料が必要ですか？</summary><p>平面図・立面図・断面図、仕上表、素材・家具・照明の資料、参考画像などをご用意ください。すべて揃っていない場合も、現在お持ちの資料を確認して必要な情報をご案内します。</p></details>
+                    <details><summary>制作期間はどのくらいですか？</summary><p>カット数、空間の規模、必要なモデリング量、資料の準備状況によって異なります。資料確認後、お見積もりとあわせて初稿・納品予定をご案内します。</p></details>
+                    <details><summary>修正2回にはどこまで含まれますか？</summary><p>色味、明るさ、影の濃さ、質感など、当初の制作範囲内の軽微な調整を2回まで含みます。カメラアングル、間取り、建物形状、家具構成などの大幅な変更は別途お見積もりします。</p></details>
+                    <details><summary>3回目以降の修正や大幅な変更はいくらですか？</summary><p>軽微な追加修正は1回3,000円から承ります。アングル変更、形状変更、構成の見直し、新しい要素の追加などは内容を確認して個別にお見積もりします。</p></details>
+                    <details><summary>図面が揃っていなくても相談できますか？</summary><p>はい。ラフスケッチ、参考写真、既存図面など、現在お持ちの資料からご相談いただけます。不足情報と制作可能な範囲を確認してご案内します。</p></details>
+                    <details><summary>どのようなファイル形式の資料を送れますか？</summary><p>PDFや画像資料を基本に受け付けています。CADデータや3Dモデルをお持ちの場合は、ソフト名とファイル形式を事前にお知らせください。対応可否を確認します。</p></details>
+                    <details><summary>遠方からでも依頼できますか？</summary><p>はい。全国からオンラインで対応しています。資料共有、内容確認、修正指示、納品までメールやオンラインで進められます。</p></details>
+                    <details><summary>納品形式と画像の利用範囲を教えてください。</summary><p>画像は用途に応じたサイズと形式で納品します。設計提案、Webサイト、SNS、広告など、予定している媒体を事前にお知らせください。元データの納品や第三者への再配布は、必要な場合に個別にご相談ください。</p></details>
                 </div>
             </div>
         </section>
