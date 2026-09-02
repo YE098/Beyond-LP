@@ -675,7 +675,6 @@
         .info-layout {
             display: grid;
             grid-template-columns: minmax(0, 1fr);
-            gap: 40px;
             max-width: 760px;
             margin-inline: auto;
         }
@@ -692,34 +691,6 @@
             margin-bottom: 30px;
             max-width: 620px;
             font-weight: 300;
-        }
-
-        .info-details {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr);
-            gap: 28px;
-            padding-bottom: 0;
-        }
-
-        .info-block h4 {
-            font-family: 'Noto Sans JP', sans-serif;
-            font-size: 0.7rem;
-            letter-spacing: 0.2em;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .info-block p, .info-block a {
-            font-size: 1rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 300;
-            opacity: 0.9;
-        }
-
-        .info-block a:hover {
-            color: var(--accent-color);
         }
 
         /* お問い合わせフォーム */
@@ -758,6 +729,21 @@
         .contact-email-fallback a {
             color: var(--accent-color);
             text-underline-offset: 4px;
+        }
+
+        .contact-service-area {
+            margin-top: 18px;
+            color: var(--secondary-color);
+            font-size: 0.86rem;
+            line-height: 1.8;
+        }
+
+        .contact-service-area strong {
+            display: block;
+            margin-bottom: 3px;
+            color: var(--accent-color);
+            font-size: 0.72rem;
+            letter-spacing: 0.16em;
         }
 
         .contact-form {
@@ -1098,15 +1084,6 @@
                 padding-bottom: 72px;
             }
             .info-layout { gap: 48px; }
-            .info-details {
-                grid-template-columns: minmax(0, 1fr);
-                gap: 28px;
-                padding-bottom: 0;
-            }
-            .info-block a,
-            .info-block p {
-                overflow-wrap: anywhere;
-            }
             .operator-list {
                 grid-template-columns: 88px minmax(0, 1fr);
                 gap: 14px 20px;
@@ -1328,16 +1305,6 @@
                         </p>
                         <a href="/about" class="btn">事業者情報を見る</a>
                     </div>
-                    <div class="info-details">
-                        <div class="info-block">
-                            <h4>メール</h4>
-                            <a href="mailto:contact@beyondcgstudio.com">contact@beyondcgstudio.com</a>
-                        </div>
-                        <div class="info-block">
-                            <h4>拠点・対応地域</h4>
-                            <p>大阪府・全国オンライン対応</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -1353,6 +1320,7 @@
                             ご相談・お見積もりは無料です。お問い合わせには2営業日以内を目安に返信します。図面や参考資料をお持ちの場合は、受付後の返信メールへ添付してお送りください。
                         </p>
                         <p class="contact-email-fallback">フォームを利用できない場合は、<a href="mailto:contact@beyondcgstudio.com">contact@beyondcgstudio.com</a>へ直接ご連絡ください。</p>
+                        <p class="contact-service-area"><strong>拠点・対応地域</strong>大阪府・全国オンライン対応</p>
                     </div>
 
                     <form class="contact-form reveal" id="contact-form">
