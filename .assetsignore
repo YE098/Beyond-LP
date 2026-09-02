@@ -9,6 +9,7 @@
 !works/
 !works/*.html
 !about.html
+!pricing-guide.html
 !favicon.png
 !logo-mark.png
 !analytics.js
