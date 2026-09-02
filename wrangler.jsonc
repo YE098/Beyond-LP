@@ -24,7 +24,7 @@
     "vars": {
         "TURNSTILE_SITE_KEY": "0x4AAAAAAD-pn0_IQVtJiwEm",
         "CONTACT_TO_EMAIL": "beyondinfo856@gmail.com",
-        "CONTACT_FROM_EMAIL": "Beyond CG Studio <onboarding@resend.dev>",
+        "CONTACT_FROM_EMAIL": "Beyond CG Studio <contact@beyondcgstudio.com>",
         "ALLOWED_HOSTNAME": "beyondcgstudio.com,www.beyondcgstudio.com,lp.beyondinfo856.workers.dev"
     },
     "assets": {
