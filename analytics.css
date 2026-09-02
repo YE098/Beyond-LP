@@ -1,7 +1,7 @@
 .analytics-consent{position:fixed;z-index:9999;right:22px;bottom:22px;width:min(520px,calc(100% - 44px));padding:20px 22px;border:1px solid rgba(212,175,55,.55);background:rgba(15,15,15,.98);box-shadow:0 12px 45px rgba(0,0,0,.45);color:#eee;font:300 .82rem/1.75 'Noto Sans JP',sans-serif}.analytics-consent p{margin:0}.analytics-consent a{color:#d4af37;text-underline-offset:3px}.analytics-consent-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:14px}.analytics-consent button{padding:9px 16px;border:1px solid #666;background:transparent;color:#eee;font:inherit;cursor:pointer}.analytics-consent button.primary{border-color:#d4af37;background:#d4af37;color:#111;font-weight:500}.analytics-consent button:focus-visible{outline:2px solid #fff;outline-offset:2px}@media(max-width:600px){.analytics-consent{right:16px;bottom:76px;width:calc(100% - 32px)}.analytics-consent-actions{justify-content:stretch}.analytics-consent button{flex:1}}
 .works-page .work{cursor:default}.works-page .work img{cursor:zoom-in}
 .project-data{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line)}.project-data div{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:22px 4px;border-bottom:1px solid var(--line)}.project-data dt{color:var(--gold);font-size:.8rem;font-weight:400}.project-data dd{margin:0;color:var(--muted)}@media(max-width:700px){.project-data{grid-template-columns:1fr}.project-data div{grid-template-columns:120px 1fr}}
-.case-breadcrumb{padding-top:24px}.case-breadcrumb ol{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none;color:#aaa9a2;font-size:.78rem}.case-breadcrumb li:not(:last-child)::after{content:"/";margin-left:8px;color:#666}.case-breadcrumb a{text-decoration:none}.case-breadcrumb a:hover{color:#c9a84c}.related-case-studies{padding:80px 0;border-bottom:1px solid #33342f}.related-case-studies h2{margin:10px 0 0;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:300}.related-work-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:32px}.related-work-link{display:flex;align-items:center;justify-content:space-between;min-height:76px;padding:18px 22px;border:1px solid #33342f;color:#f2f0ea;text-decoration:none}.related-work-link::after{content:"→";color:#c9a84c}.related-work-link:hover{border-color:#c9a84c}@media(max-width:700px){.case-breadcrumb{padding-top:18px}.related-case-studies{padding:60px 0}.related-work-links{grid-template-columns:1fr}}
+.case-breadcrumb{padding-top:24px}.case-breadcrumb ol{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none;color:#aaa9a2;font-size:.78rem}.case-breadcrumb li:not(:last-child)::after{content:"/";margin-left:8px;color:#666}.case-breadcrumb a{text-decoration:none}.case-breadcrumb a:hover{color:#c9a84c}.related-case-studies{padding:64px 0;border-bottom:1px solid #33342f}.related-case-studies h2{margin:10px 0 0;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:300}.related-work-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:26px}.related-work-link{display:flex;align-items:center;justify-content:space-between;min-height:70px;padding:16px 20px;border:1px solid #33342f;color:#f2f0ea;text-decoration:none}.related-work-link::after{content:"→";color:#c9a84c}.related-work-link:hover{border-color:#c9a84c}@media(max-width:700px){.case-breadcrumb{padding-top:18px}.related-case-studies{padding:48px 0}.related-work-links{grid-template-columns:1fr;margin-top:22px}}
 
 /* 全ページ共通ヘッダー */
 .site-header{height:82px!important;position:sticky!important;top:0!important;z-index:1000!important;background:rgba(17,18,17,.96)!important;border-bottom:1px solid rgba(255,255,255,.12)!important;backdrop-filter:blur(12px)}
@@ -39,7 +39,9 @@ body{padding-bottom:68px}.mobile-sticky-cta{display:flex;position:fixed;z-index:
 
 /* ファーストビュー以降の移動距離を抑え、実績・料金・問い合わせへ到達しやすくする */
 @media(min-width:801px){
-main>section:not(:first-child){padding-top:clamp(92px,6.5vw,108px)!important;padding-bottom:clamp(92px,6.5vw,108px)!important}
+main>section:not(:first-child){padding-top:clamp(76px,5.5vw,88px)!important;padding-bottom:clamp(76px,5.5vw,88px)!important}
+.section-head{margin-bottom:clamp(38px,3.5vw,48px)!important}
+.points{margin-top:40px!important}
 }
 
 /* 下層ページと本文セクションの見出し基準 */
@@ -67,7 +69,9 @@ header .logo-mark{width:30px!important;height:30px!important}
 .section-head h1 br,.section-head h2 br,.cta h2 br{display:none}
 .cta h2{font-size:clamp(1.8rem,8vw,2.2rem)!important;line-height:1.48!important}
 .hero .lead,.hero p,.section-head p,.copy p{font-size:.92rem;line-height:1.9}
-section{padding-top:60px!important;padding-bottom:60px!important}
+section{padding-top:52px!important;padding-bottom:52px!important}
+.section-head{margin-bottom:32px!important}
+.points{margin-top:30px!important}
 .button,.buttons .button,.related .button{width:100%;min-height:48px;padding:13px 18px;text-align:center}
 .buttons,.related{gap:10px}
 .meta{grid-template-columns:1fr!important}
