@@ -1,6 +1,17 @@
 (() => {
     const measurementId = 'G-GP2R1LXC3E';
     const consentKey = 'bcg_analytics_consent';
+    const workContactContext = {
+        '/works/dental-clinic': ['歯科医院の待合室・内観CGパース', '内観パース', 'クリニック・美容施設'],
+        '/works/ginza-sushi-restaurant': ['銀座の寿司店 内観CGパース', '内観パース', '店舗・飲食店'],
+        '/works/korean-restaurant': ['韓国料理店 内観CGパース', '内観パース', '店舗・飲食店'],
+        '/works/tower-mansion': ['タワーマンション 内観CGパース', '内観パース', '住宅・マンション'],
+        '/works/share-salon': ['シェアサロン 受付・待合CGパース', '内観パース', 'クリニック・美容施設'],
+        '/works/kyoto-kominka': ['京都の古民家改装 建築CGパース', '外観パース', '住宅・マンション'],
+        '/works/hotel-lobby': ['ホテルロビー 内観CGパース', '内観パース', 'ホテル・宿泊施設'],
+        '/works/restaurant-exterior': ['飲食店ファサード 外観CGパース', '外観パース', '店舗・飲食店'],
+        '/works/tokyo-bar': ['東京のBAR 内観CGパース', '内観パース', '店舗・飲食店']
+    };
     let loaded = false;
 
     window.dataLayer = window.dataLayer || [];
@@ -65,6 +76,18 @@
         if (consent === 'granted') loadAnalytics();
         if (!consent) createConsentBanner();
 
+        const pagePath = window.location.pathname.replace(/\/$/, '');
+        const contactContext = workContactContext[pagePath];
+        if (contactContext) {
+            const [work, service, projectType] = contactContext;
+            const params = new URLSearchParams({ work, service, projectType });
+            document.querySelectorAll('.cta a[href="/#contact"]').forEach(link => {
+                link.href = `/?${params.toString()}#contact`;
+                link.dataset.work = work;
+                link.dataset.service = service;
+            });
+        }
+
         document.querySelectorAll('[data-analytics-settings]').forEach(button => {
             button.addEventListener('click', showConsentSettings);
         });
@@ -76,7 +99,11 @@
                 if (href.startsWith('mailto:')) window.trackAnalyticsEvent('contact_email_click');
                 if (href.startsWith('tel:')) window.trackAnalyticsEvent('contact_phone_click');
                 if (href.includes('#contact')) {
-                    window.trackAnalyticsEvent('contact_cta_click', { link_text: link.textContent.trim().slice(0, 80) });
+                    window.trackAnalyticsEvent('contact_cta_click', {
+                        link_text: link.textContent.trim().slice(0, 80),
+                        work_title: link.dataset.work || '',
+                        service: link.dataset.service || ''
+                    });
                 }
             }
 

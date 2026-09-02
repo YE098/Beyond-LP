@@ -1906,8 +1906,23 @@
         const contactForm = document.getElementById('contact-form');
         const formStatus = document.getElementById('form-status');
         const contactSubmit = document.getElementById('contact-submit');
+        const contactParams = new URLSearchParams(window.location.search);
         let turnstileToken = '';
         let turnstileWidgetId = null;
+
+        const selectKnownOption = (select, value) => {
+            if (!value || value.length > 100) return;
+            if ([...select.options].some(option => option.value === value)) select.value = value;
+        };
+
+        const workTitle = (contactParams.get('work') || '').trim().slice(0, 100);
+        if (workTitle) {
+            selectKnownOption(document.getElementById('contact-service'), contactParams.get('service'));
+            selectKnownOption(document.getElementById('contact-project-type'), contactParams.get('projectType'));
+            const message = document.getElementById('contact-message');
+            message.value = `「${workTitle}」のようなCG制作について相談したいです。\n\n`;
+            message.dataset.prefilledFromWork = workTitle;
+        }
 
         const setFormStatus = (message, type = '') => {
             formStatus.textContent = message;
@@ -2025,7 +2040,10 @@
                 if (window.turnstile && turnstileWidgetId !== null) {
                     window.turnstile.reset(turnstileWidgetId);
                 }
-                window.trackAnalyticsEvent?.('generate_lead');
+                window.trackAnalyticsEvent?.('generate_lead', {
+                    work_title: workTitle,
+                    service: data.get('service') || ''
+                });
                 setFormStatus('お問い合わせを受け付けました。内容を確認のうえご連絡します。', 'success');
             } catch (error) {
                 const message = error.name === 'AbortError'
