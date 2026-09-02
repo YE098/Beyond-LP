@@ -24,7 +24,10 @@ export default {
     async fetch(request, env) {
         const url = new URL(request.url);
 
-        if (url.hostname === 'www.beyondcgstudio.com') {
+        if (
+            url.hostname === 'www.beyondcgstudio.com'
+            || url.hostname === 'lp.beyondinfo856.workers.dev'
+        ) {
             url.hostname = 'beyondcgstudio.com';
             return Response.redirect(url.toString(), 308);
         }

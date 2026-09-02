@@ -23,6 +23,14 @@ section{padding:120px 0;border-bottom:1px solid var(--line)}.section-head{displa
 <script src="/analytics.js" defer></script>
 </head>
 <body>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const priceNote = document.querySelector('#price .card:first-child p');
+    if (priceNote && !priceNote.textContent.includes('3回目以降')) {
+        priceNote.insertAdjacentText('beforeend', ' 3回目以降は1回3,000円〜です。');
+    }
+});
+</script>
 <a class="skip" href="#main">本文へ移動</a>
 <header><div class="container nav"><a class="logo" href="/"><img class="logo-mark" src="/logo-mark.png" alt="" width="36" height="36"><span>Beyond CG Studio</span></a><nav class="navlinks" aria-label="メインナビゲーション"><a href="#service">対応内容</a><a href="/works">制作実績</a><a href="#price">料金</a><a class="contact" href="/#contact">見積もりを相談</a></nav></div></header>
 <main id="main"><section class="hero"><div class="container hero-grid"><div class="hero-copy"><span class="eyebrow">MEDICAL &amp; BEAUTY CGI</span><h1>安心感とブランドの個性を、<br>空間CGで伝える。</h1><p>クリニック、歯科医院、美容室、シェアサロンなどの受付・待合・施術空間を可視化します。設計提案、開業準備、Web・広告用ビジュアルまで全国オンラインで対応します。</p><div class="buttons"><a class="button primary" href="/#contact">施設パースを相談する</a><a class="button" href="#medical-works">医療・美容事例を見る</a></div></div><div class="hero-visual"><img src="https://YE098.github.io/beyond-cg-images/project02.webp" alt="歯科医院の待合室を表現したクリニック内観CGパース" width="1920" height="1080"></div></div></section>
