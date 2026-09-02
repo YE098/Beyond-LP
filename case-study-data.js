@@ -37,5 +37,5 @@
     });
     container.appendChild(list);
     section.appendChild(container);
-    cta.after(section);
+    cta.before(section);
 })();
