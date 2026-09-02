@@ -904,6 +904,62 @@
             background: var(--surface-color);
         }
 
+        .testimonials-section {
+            background: #0d0e0d;
+        }
+
+        .testimonials-heading {
+            display: grid;
+            grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+            gap: 100px;
+            margin-bottom: 52px;
+        }
+
+        .testimonials-heading h2 {
+            margin-top: 14px;
+            font-size: clamp(2rem, 4vw, 3.4rem);
+            font-weight: 300;
+        }
+
+        .testimonials-heading p {
+            color: var(--secondary-color);
+            font-size: 0.95rem;
+            line-height: 2;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .testimonial-card {
+            padding: 38px;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: var(--surface-color);
+        }
+
+        .testimonial-card blockquote {
+            margin: 0 0 28px;
+            color: #e5e2d9;
+            font-size: 1rem;
+            line-height: 2;
+        }
+
+        .testimonial-meta {
+            margin: 0;
+            color: var(--accent-color);
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+        }
+
+        .testimonial-link {
+            display: inline-block;
+            margin-top: 18px;
+            color: var(--secondary-color);
+            font-size: 0.8rem;
+        }
+
         .home-faq-heading {
             display: grid;
             grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
@@ -1367,7 +1423,10 @@
             .operator-list dd { overflow-wrap: anywhere; }
             .studio-map { height: 320px; }
             .contact-layout { gap: 55px; }
-            .home-faq-heading { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-bottom: 36px; }
+            .home-faq-heading,
+            .testimonials-heading { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-bottom: 36px; }
+            .testimonials-grid { grid-template-columns: minmax(0, 1fr); }
+            .testimonial-card { padding: 28px; }
             .contact-form { grid-template-columns: minmax(0, 1fr); }
             .form-field.full { grid-column: auto; }
             .form-actions {
@@ -1731,6 +1790,20 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- 掲載許可済みのお客様の声がある場合のみ表示 -->
+        <section id="testimonials" class="section testimonials-section" aria-labelledby="testimonials-title" hidden>
+            <div class="container">
+                <div class="testimonials-heading reveal">
+                    <div>
+                        <span class="section-label">CLIENT VOICES</span>
+                        <h2 id="testimonials-title">お客様の声</h2>
+                    </div>
+                    <p>実際にご依頼いただいたお客様から、掲載許可をいただいた感想をご紹介します。</p>
+                </div>
+                <div class="testimonials-grid" id="testimonials-list"></div>
             </div>
         </section>
 
@@ -2194,6 +2267,7 @@
             }
         });
     </script>
+    <script src="/testimonials.js"></script>
 </body>
 
 </html>
