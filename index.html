@@ -329,6 +329,18 @@
             padding-top: 45px;
         }
 
+        .service-detail-link {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 45px;
+        }
+
+        .service-detail-link .btn {
+            margin: 0;
+        }
         .service-card h3 {
             font-size: 1.5rem;
             margin-bottom: 25px;
@@ -1178,6 +1190,12 @@
             .contact-layout { grid-template-columns: minmax(0, 1fr); gap: 36px; }
             .services-grid { gap: 50px; }
             .service-card { padding-top: 30px; }
+            .service-detail-link {
+                flex-direction: column;
+                align-items: stretch;
+                margin-top: 10px;
+            }
+            .service-detail-link .btn { width: 100%; }
             .process-heading { margin-bottom: 45px; }
             .process-grid { grid-template-columns: minmax(0, 1fr); }
             .process-step,
@@ -1381,9 +1399,9 @@
                         <h3>ウォークスルー動画</h3>
                         <p>空間を体験する高品質なアニメーション。没入感のある演出とドローン視点のようなダイナミックな動きで、プロジェクトの価値を最大化します。</p>
                     </div>
-                <div class="service-detail-link" style="margin-top: 45px; text-align: center;">
+                <div class="service-detail-link">
                     <a href="/architectural-rendering" class="btn">建築パース制作の詳細を見る</a>
-                    <a href="/store-rendering" class="btn" style="margin-left:10px;">店舗・飲食店CGパースを見る</a>
+                    <a href="/store-rendering" class="btn">店舗・飲食店CGパースを見る</a>
                 </div>
                 </div>
             </div>
