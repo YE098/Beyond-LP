@@ -1,6 +1,15 @@
 import { onRequestPost as handleContactPost } from './functions/api/contact.js';
 import { onRequestGet as handleTurnstileConfigGet } from './functions/api/turnstile-config.js';
 
+const securityHeaders = {
+    'Content-Security-Policy': "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; img-src 'self' data: https://www.google-analytics.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.googletagmanager.com; connect-src 'self' https://challenges.cloudflare.com https://www.google-analytics.com https://region1.google-analytics.com; frame-src https://challenges.cloudflare.com https://www.google.com https://maps.google.com; upgrade-insecure-requests",
+    'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
+    'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=(), usb=()',
+    'Referrer-Policy': 'strict-origin-when-cross-origin',
+    'X-Content-Type-Options': 'nosniff',
+    'X-Frame-Options': 'SAMEORIGIN'
+};
+
 const jsonResponse = (data, status = 200, extraHeaders = {}) => new Response(
     JSON.stringify(data),
     {
@@ -8,7 +17,7 @@ const jsonResponse = (data, status = 200, extraHeaders = {}) => new Response(
         headers: {
             'Content-Type': 'application/json; charset=utf-8',
             'Cache-Control': 'no-store',
-            'X-Content-Type-Options': 'nosniff',
+            ...securityHeaders,
             ...extraHeaders
         }
     }
@@ -58,9 +67,7 @@ export default {
         } else if (/\.(?:css|js)$/.test(pathname)) {
             headers.set('Cache-Control', 'public, max-age=3600, stale-while-revalidate=86400');
         }
-        headers.set('X-Content-Type-Options', 'nosniff');
-        headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-        headers.set('X-Frame-Options', 'SAMEORIGIN');
+        Object.entries(securityHeaders).forEach(([name, value]) => headers.set(name, value));
 
         return new Response(assetResponse.body, {
             status: assetResponse.status,

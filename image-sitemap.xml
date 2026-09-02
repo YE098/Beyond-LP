@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://beyondcgstudio.com/</loc>
+    <image:image><image:loc>https://beyondcgstudio.com/works-images/architectural-visualization-hero.webp</image:loc><image:title>建築パース・インテリアCG制作スタジオ</image:title></image:image>
+    <image:image><image:loc>https://beyondcgstudio.com/works-images/dental-clinic-waiting-room-cg.webp</image:loc><image:title>歯科医院の待合室CGパース</image:title></image:image>
+    <image:image><image:loc>https://beyondcgstudio.com/works-images/ginza-sushi-restaurant-interior.webp</image:loc><image:title>銀座の寿司店 内観CGパース</image:title></image:image>
+    <image:image><image:loc>https://beyondcgstudio.com/works-images/korean-restaurant-interior-rendering.webp</image:loc><image:title>韓国料理店の内観CGパース</image:title></image:image>
+    <image:image><image:loc>https://beyondcgstudio.com/works-images/tower-mansion-3.webp</image:loc><image:title>タワーマンションのリビングCGパース</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://beyondcgstudio.com/works</loc>
+    <image:image><image:loc>https://beyondcgstudio.com/works-images/dental-clinic-waiting-room-cg.webp</image:loc><image:title>歯科医院の待合室CGパース</image:title></image:image>
+    <image:image><image:loc>https://beyondcgstudio.com/works-images/ginza-sushi-restaurant-interior.webp</image:loc><image:title>銀座の寿司店 内観CGパース</image:title></image:image>
+    <image:image><image:loc>https://beyondcgstudio.com/works-images/kyoto-kominka-renovation-cg.webp</image:loc><image:title>京都の古民家改装CGパース</image:title></image:image>
+    <image:image><image:loc>https://beyondcgstudio.com/works-images/hotel-lobby-interior-rendering.webp</image:loc><image:title>ホテルロビーの内観CGパース</image:title></image:image>
+    <image:image><image:loc>https://beyondcgstudio.com/works-images/korean-restaurant-interior-rendering.webp</image:loc><image:title>韓国料理店の内観CGパース</image:title></image:image>
+    <image:image><image:loc>https://beyondcgstudio.com/works-images/tower-mansion-3.webp</image:loc><image:title>タワーマンションのリビングCGパース</image:title></image:image>
+    <image:image><image:loc>https://beyondcgstudio.com/works-images/restaurant-exterior.webp</image:loc><image:title>飲食店ファサードの外観CGパース</image:title></image:image>
+    <image:image><image:loc>https://beyondcgstudio.com/works-images/share-salon-1.webp</image:loc><image:title>シェアサロンの待合CGパース</image:title></image:image>
+    <image:image><image:loc>https://beyondcgstudio.com/works-images/tokyo-bar.webp</image:loc><image:title>東京のBAR 内観CGパース</image:title></image:image>
+  </url>
   <url><loc>https://beyondcgstudio.com/interior-rendering</loc><image:image><image:loc>https://beyondcgstudio.com/works-images/tower-mansion-3.webp</image:loc><image:title>タワーマンションのリビング内観CGパース</image:title></image:image></url>
   <url><loc>https://beyondcgstudio.com/exterior-rendering</loc><image:image><image:loc>https://beyondcgstudio.com/works-images/restaurant-exterior.webp</image:loc><image:title>飲食店ファサードの外観CGパース</image:title></image:image><image:image><image:loc>https://beyondcgstudio.com/works-images/kyoto-kominka-renovation-cg.webp</image:loc><image:title>京都古民家改装の外観CGパース</image:title></image:image></url>
   <url><loc>https://beyondcgstudio.com/works/dental-clinic</loc><image:image><image:loc>https://beyondcgstudio.com/works-images/dental-clinic-waiting-room-cg.webp</image:loc><image:title>歯科医院の待合室CGパース</image:title></image:image><image:image><image:loc>https://beyondcgstudio.com/works-images/dental-clinic-interior-cg.webp</image:loc><image:title>歯科医院の内観CGパース</image:title></image:image></url>
