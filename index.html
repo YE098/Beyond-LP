@@ -278,9 +278,10 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 7vw, 5.5rem);
-            line-height: 1.1;
-            margin-bottom: 35px;
+            max-width: 820px;
+            font-size: clamp(3rem, 5.8vw, 5rem);
+            line-height: 1.16;
+            margin: 24px 0 28px;
             font-weight: 400;
         }
 
@@ -292,6 +293,21 @@
             margin-bottom: 50px;
         }
 
+        .hero-content {
+            max-width: 820px;
+        }
+
+        .hero-tagline {
+            margin: 0 0 18px;
+            color: var(--primary-color);
+            font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+            line-height: 1.7;
+        }
+
+        .hero-description {
+            color: rgba(255,255,255,0.78);
+            line-height: 1.95;
+        }
         /* ボタン */
         .btn {
             display: inline-block;
@@ -1359,10 +1375,10 @@
             <div class="hero-bg"></div>
             <div class="container">
                 <div class="hero-content reveal">
-                    <span class="section-label">建築ビジュアライゼーションスタジオ</span>
-                    <h1>建築パース・<br>インテリアCG制作。</h1>
-                    <p class="hero-tagline" style="color: var(--primary-color); margin-bottom: 18px; font-size: 1.25rem;">リアリティを超え、想いを可視化する。</p>
-                    <p>私たちは、最先端のCG技術と芸術的な感性を融合させ、まだ見ぬ空間に生命を吹き込むクリエイティブスタジオです。</p>
+                    <span class="section-label">建築パース・インテリアCG制作スタジオ</span>
+                    <h1>設計の意図を、<br>伝わる建築パースへ。</h1>
+                    <p class="hero-tagline">内観・外観CGで、完成前の空間を可視化します。</p>
+                    <p class="hero-description">住宅・マンション、店舗・飲食店、クリニック・美容施設まで。設計提案、施主確認、販促に使えるCGパースを全国対応で制作します。</p>
                     <a href="#portfolio" class="btn">制作実績を見る</a>
                 </div>
             </div>
