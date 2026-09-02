@@ -827,9 +827,7 @@
         }
 
         .info-layout {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 120px;
+            max-width: 760px;
         }
 
         .info-details {
@@ -857,22 +855,6 @@
 
         .info-block a:hover {
             color: var(--accent-color);
-        }
-
-        .studio-map {
-            width: 100%;
-            height: 450px;
-            background: #0a0a0a;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .studio-map iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-            filter: grayscale(0.8) contrast(1.05);
         }
 
         /* お問い合わせフォーム */
@@ -1153,38 +1135,6 @@
             color: var(--accent-color);
         }
 
-        /* 運営者情報 */
-        .operator-info {
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-        
-        .operator-title {
-            font-family: 'Noto Sans JP', sans-serif;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-            letter-spacing: 0.1em;
-        }
-        
-        .operator-list {
-            display: grid;
-            grid-template-columns: 120px 1fr;
-            gap: 15px 40px;
-            font-size: 0.9rem;
-        }
-        
-        .operator-list dt {
-            color: var(--secondary-color);
-            font-weight: 300;
-        }
-        
-        .operator-list dd {
-            color: var(--primary-color);
-            font-weight: 300;
-        }
-
         /* フッター */
         footer {
             padding: 40px 0 55px;
@@ -1427,8 +1377,6 @@
                 gap: 14px 20px;
                 font-size: 0.82rem;
             }
-            .operator-list dd { overflow-wrap: anywhere; }
-            .studio-map { height: 320px; }
             .contact-layout { gap: 55px; }
             .home-faq-heading,
             .testimonials-heading { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-bottom: 36px; }
@@ -1757,11 +1705,11 @@
                 <div class="info-layout">
                     <div class="reveal">
                         <span class="section-label">スタジオ情報</span>
-                        <h2 style="font-size: 2.2rem; margin-bottom: 45px; font-weight: 400; line-height: 1.4;">Beyond CG Studioに<br>ついて。</h2>
-                        <p style="color: var(--secondary-color); margin-bottom: 70px; max-width: 500px; font-weight: 300;">
-                            図面共有から確認・納品までオンラインで進行し、全国からご依頼いただけます。
+                        <h2 style="font-size: 2.2rem; margin-bottom: 32px; font-weight: 400; line-height: 1.4;">Beyond CG Studioについて。</h2>
+                        <p style="color: var(--secondary-color); margin-bottom: 42px; max-width: 620px; font-weight: 300;">
+                            大阪を拠点に、建築パース・インテリアCGを全国対応で制作しています。図面共有から確認・納品まで、オンラインで進行できます。
                         </p>
-                        <a href="/about" class="btn" style="margin-bottom:55px;">事業者プロフィールを見る</a>
+                        <a href="/about" class="btn" style="margin-bottom:48px;">事業者情報を見る</a>
 
                         <div class="info-details">
                             <div class="info-block">
@@ -1769,33 +1717,9 @@
                                 <a href="mailto:contact@beyondcgstudio.com">contact@beyondcgstudio.com</a>
                             </div>
                             <div class="info-block">
-                                <h4>所在地</h4>
-                                <p>大阪市西区江戸堀2-7-32</p>
+                                <h4>拠点・対応地域</h4>
+                                <p>大阪府・全国オンライン対応</p>
                             </div>
-                        </div>
-
-                        <!-- 運営者情報 -->
-                        <div class="operator-info reveal">
-                            <h4 class="operator-title">運営者情報</h4>
-                            <dl class="operator-list">
-                                <dt>屋号</dt><dd>Beyond CG Studio</dd>
-                                <dt>代表</dt><dd>江藤ブライアン</dd>
-                                <dt>拠点</dt><dd>大阪府</dd>
-                                <dt>登録番号</dt><dd>T6810245733811</dd>
-                                <dt>使用ソフト</dt><dd>Rhinoceros / SketchUp / VectorWorks / Photoshop 他</dd>
-                            </dl>
-                        </div>
-                    </div>
-                    
-                    <div class="reveal">
-                        <div class="studio-map">
-                            <iframe
-                                src="https://www.google.com/maps?q=%E5%A4%A7%E9%98%AA%E5%B8%82%E8%A5%BF%E5%8C%BA%E6%B1%9F%E6%88%B8%E5%A0%802-7-32&amp;output=embed"
-                                title="Beyond CG Studio 所在地（大阪市西区江戸堀2-7-32）"
-                                loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"
-                                allowfullscreen>
-                            </iframe>
                         </div>
                     </div>
                 </div>
