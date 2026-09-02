@@ -770,16 +770,36 @@
         /* スタジオ情報 */
         #info {
             background-color: var(--surface-color);
+            padding-top: 72px;
+            padding-bottom: 72px;
         }
 
         .info-layout {
-            max-width: 760px;
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(420px, 0.85fr);
+            gap: clamp(60px, 8vw, 130px);
+            align-items: end;
+        }
+
+        .info-heading {
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
+            margin-bottom: 24px;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .info-description {
+            color: var(--secondary-color);
+            margin-bottom: 30px;
+            max-width: 620px;
+            font-weight: 300;
         }
 
         .info-details {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 34px;
+            padding-bottom: 8px;
         }
 
         .info-block h4 {
@@ -1184,10 +1204,15 @@
             .correction-box { padding: 28px 22px; }
             .pricing-note { margin-top: 50px; }
 
-            .info-layout { gap: 70px; }
+            #info {
+                padding-top: 72px;
+                padding-bottom: 72px;
+            }
+            .info-layout { gap: 48px; }
             .info-details {
                 grid-template-columns: minmax(0, 1fr);
-                gap: 35px;
+                gap: 28px;
+                padding-bottom: 0;
             }
             .info-block a,
             .info-block p {
@@ -1484,24 +1509,23 @@
         <!-- スタジオ情報 -->
         <section id="info" class="section">
             <div class="container">
-                <div class="info-layout">
-                    <div class="reveal">
+                <div class="info-layout reveal">
+                    <div class="info-intro">
                         <span class="section-label">スタジオ情報</span>
-                        <h2 style="font-size: 2.2rem; margin-bottom: 32px; font-weight: 400; line-height: 1.4;">Beyond CG Studioについて。</h2>
-                        <p style="color: var(--secondary-color); margin-bottom: 42px; max-width: 620px; font-weight: 300;">
+                        <h2 class="info-heading">Beyond CG Studioについて。</h2>
+                        <p class="info-description">
                             大阪を拠点に、建築パース・インテリアCGを全国対応で制作しています。図面共有から確認・納品まで、オンラインで進行できます。
                         </p>
-                        <a href="/about" class="btn" style="margin-bottom:48px;">事業者情報を見る</a>
-
-                        <div class="info-details">
-                            <div class="info-block">
-                                <h4>メール</h4>
-                                <a href="mailto:contact@beyondcgstudio.com">contact@beyondcgstudio.com</a>
-                            </div>
-                            <div class="info-block">
-                                <h4>拠点・対応地域</h4>
-                                <p>大阪府・全国オンライン対応</p>
-                            </div>
+                        <a href="/about" class="btn">事業者情報を見る</a>
+                    </div>
+                    <div class="info-details">
+                        <div class="info-block">
+                            <h4>メール</h4>
+                            <a href="mailto:contact@beyondcgstudio.com">contact@beyondcgstudio.com</a>
+                        </div>
+                        <div class="info-block">
+                            <h4>拠点・対応地域</h4>
+                            <p>大阪府・全国オンライン対応</p>
                         </div>
                     </div>
                 </div>
