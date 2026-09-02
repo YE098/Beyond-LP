@@ -6,6 +6,8 @@
 !residential-rendering.html
 !medical-rendering.html
 !works.html
+!works/
+!works/*.html
 !about.html
 !favicon.png
 !logo-mark.png
