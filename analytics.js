@@ -160,8 +160,8 @@
         const link = document.createElement('a');
         link.className = 'mobile-sticky-cta';
         link.href = window.location.pathname === '/' ? '#contact' : '/#contact';
-        link.textContent = '見積もりを相談';
-        link.setAttribute('aria-label', '見積もりフォームへ移動');
+        link.textContent = '制作について相談する';
+        link.setAttribute('aria-label', '制作について問い合わせる');
         document.body.appendChild(link);
     };
 
