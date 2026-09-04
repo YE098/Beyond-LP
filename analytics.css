@@ -28,11 +28,11 @@
 .site-header .menu-toggle::after{bottom:14px}
 .site-header.menu-open .menu-toggle::before{top:21px;box-shadow:none;transform:rotate(45deg)}
 .site-header.menu-open .menu-toggle::after{bottom:21px;transform:rotate(-45deg)}
-.site-nav{display:none!important;position:fixed!important;top:68px!important;right:0!important;bottom:0!important;left:auto!important;width:min(88vw,400px)!important;max-width:400px!important;height:calc(100vh - 68px)!important;box-sizing:border-box!important;overflow-y:auto!important;padding:20px 24px 48px!important;background:#111211!important;box-shadow:-18px 0 48px rgba(0,0,0,.38)!important}
+.site-nav{display:none!important;position:fixed!important;top:68px!important;right:0!important;bottom:0!important;left:auto!important;width:min(78vw,340px)!important;max-width:340px!important;height:calc(100vh - 68px)!important;box-sizing:border-box!important;overflow-y:auto!important;padding:20px 22px 48px!important;background:#111211!important;box-shadow:-18px 0 48px rgba(0,0,0,.38)!important}
 .site-header.menu-open .site-nav{display:block!important}.site-nav-list{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;max-width:620px;margin:auto!important}
 .site-nav-list>li{border-bottom:1px solid #30312d}.site-nav-list>li>a,.site-nav-service-toggle{display:flex!important;justify-content:space-between!important;width:100%!important;min-height:58px!important;padding:12px 4px!important;font-size:.92rem!important}
 .site-nav-services{position:static}.site-service-menu{display:none;position:static!important;width:100%!important;padding:0 0 12px 12px!important;border:0!important;background:transparent!important;box-shadow:none!important;opacity:1!important;visibility:visible!important;transform:none!important}.service-menu-open .site-service-menu{display:block}
-.site-service-menu a{padding:11px 8px!important}.site-nav-contact{display:inline-flex!important;width:auto!important;min-height:48px!important;margin:18px 0 0!important;padding:12px 20px!important;box-sizing:border-box!important;justify-content:center!important;text-align:center!important;border:1px solid #c9a84c!important}
+.site-service-menu a{padding:11px 8px!important}.site-nav-list>li>a.site-nav-contact{display:inline-flex!important;width:max-content!important;max-width:100%!important;min-height:44px!important;margin:18px 0 0!important;padding:10px 18px!important;box-sizing:border-box!important;justify-content:center!important;text-align:center!important;border:1px solid #c9a84c!important}
 body.menu-open{overflow:hidden!important}
 }
 
