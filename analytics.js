@@ -106,7 +106,6 @@
             </ul>`;
 
         let menuToggle = header.querySelector('.menu-toggle');
-        const addedToggle = !menuToggle;
         if (!menuToggle) {
             menuToggle = document.createElement('button');
             menuToggle.className = 'menu-toggle site-menu-toggle';
@@ -131,7 +130,8 @@
             serviceToggle.setAttribute('aria-expanded', String(open));
         });
 
-        if (addedToggle) {
+        if (!menuToggle.dataset.sharedMenuBound) {
+            menuToggle.dataset.sharedMenuBound = 'true';
             menuToggle.addEventListener('click', () => {
                 const open = header.classList.toggle('menu-open');
                 document.body.classList.toggle('menu-open', open);
@@ -151,7 +151,12 @@
             if (!event.target.closest('.site-nav-services')) closeServiceMenu();
         });
         document.addEventListener('keydown', event => {
-            if (event.key === 'Escape') closeServiceMenu();
+            if (event.key !== 'Escape') return;
+            closeServiceMenu();
+            header.classList.remove('menu-open');
+            document.body.classList.remove('menu-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.setAttribute('aria-label', 'メニューを開く');
         });
     };
 
