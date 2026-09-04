@@ -143,4 +143,4 @@ main>section:not(:first-child){padding-top:var(--site-section-space)!important;p
 
 /* Aboutページの各ブロックを画面中央の共通幅へ収める */
 .about-page .hero .container{max-width:960px}.about-page .profile-section>.container{max-width:1040px}
-@media(min-width:801px){.about-page .profile-layout{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px;max-width:100%}}
+@media(min-width:801px){.about-page .profile-layout{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px;max-width:100%}.about-page .profile-map{align-self:end}}
