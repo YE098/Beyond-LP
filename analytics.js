@@ -92,6 +92,7 @@
                 <li class="site-nav-services">
                     <button type="button" class="site-nav-service-toggle" aria-expanded="false" aria-controls="site-service-menu">サービス<span aria-hidden="true">＋</span></button>
                     <ul class="site-service-menu" id="site-service-menu">
+                        <li><a href="/architectural-rendering">サービス一覧</a></li>
                         <li><a href="/interior-rendering">内観パース制作</a></li>
                         <li><a href="/exterior-rendering">外観パース制作</a></li>
                         <li><a href="/store-rendering">店舗・飲食店CGパース</a></li>
@@ -165,8 +166,8 @@
         const link = document.createElement('a');
         link.className = 'mobile-sticky-cta';
         link.href = window.location.pathname === '/' ? '#contact' : '/#contact';
-        link.textContent = '制作について相談する';
-        link.setAttribute('aria-label', '制作について問い合わせる');
+        link.textContent = '見積もりを相談';
+        link.setAttribute('aria-label', '見積もりを相談する');
         document.body.appendChild(link);
 
         const form = document.querySelector('#contact-form, .contact-form');

@@ -93,3 +93,22 @@ section{padding-top:52px!important;padding-bottom:52px!important}
 .related-work-link{min-height:68px;padding:16px 18px}
 .footerrow{gap:16px!important}
 }
+
+/* 共通レイアウト基準 */
+:root{--site-content:1120px;--site-section-space:80px;--site-section-space-mobile:48px}
+body{font-size:1rem}
+.container{width:min(var(--site-content),calc(100% - 48px))!important}
+.site-header{height:72px!important}
+.section-head{gap:48px!important;margin-bottom:36px!important}
+.section-head h1,.section-head h2{max-width:760px!important;overflow-wrap:normal!important;word-break:normal!important;line-break:strict!important;text-wrap:balance}
+.section-head h1{font-size:clamp(2.5rem,4.5vw,4rem)!important}
+.section-head h2{font-size:clamp(1.75rem,3vw,2.5rem)!important;line-height:1.38!important}
+.section-head p,.copy p,.card p{font-size:1rem;line-height:1.8}
+.cta h2{font-size:clamp(1.75rem,3vw,2.5rem)!important;overflow-wrap:normal!important;word-break:normal!important}
+main>section:not(:first-child){padding-top:var(--site-section-space)!important;padding-bottom:var(--site-section-space)!important}
+.button,.btn{min-height:48px}
+.top-price-heading{margin:0 0 36px;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;line-height:1.35}.top-price-link{margin-top:28px;text-align:center}#pricing .pricing-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:860px;margin-right:auto;margin-left:auto}#pricing .pricing-card{padding:32px}#pricing .pricing-card p{margin:20px 0 0;color:#aaa9a2}
+.service-index-hero{padding:88px 0 72px;border-bottom:1px solid #33342f}.service-index-hero h1{max-width:760px;margin:14px 0 20px;font-family:'Playfair Display','Noto Sans JP',serif;font-size:clamp(2.5rem,4.5vw,4rem);font-weight:400;line-height:1.25}.service-index-hero p{max-width:680px;margin:0;color:#aaa9a2;font-size:1rem;line-height:1.8}.service-index-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid #33342f}.service-index-list a{position:relative;display:grid;grid-template-columns:44px 1fr;gap:5px 16px;min-height:116px;padding:24px;border-right:1px solid #33342f;border-bottom:1px solid #33342f;color:#f2f0ea;text-decoration:none}.service-index-list a:nth-child(even){border-right:0}.service-index-list a::after{content:'→';position:absolute;right:24px;top:24px;color:#c9a84c}.service-index-list span{grid-row:1/3;color:#c9a84c;font-size:.75rem;letter-spacing:.12em}.service-index-list strong{padding-right:34px;font-size:1.08rem;font-weight:400}.service-index-list small{color:#aaa9a2;font-size:.86rem}.service-index-list a:hover,.service-index-list a:focus-visible{background:#191a19}.service-index-price .container{display:flex;align-items:end;justify-content:space-between;gap:48px}.service-index-price h2{margin:10px 0 14px;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:300}.service-index-price p{max-width:720px;margin:0;color:#aaa9a2}.service-index-cta .buttons{justify-content:center}.service-index-cta h2{max-width:760px}
+
+@media(max-width:600px){
+:root{--site-section-space-mobile:48px}.container{width:calc(100% - 32px)!important}.site-header{height:64px!important}.site-nav{top:64px!important;height:calc(100vh - 64px)!important}main>section:not(:first-child),section{padding-top:var(--site-section-space-mobile)!important;padding-bottom:var(--site-section-space-mobile)!important}.section-head{gap:14px!important;margin-bottom:28px!important}h1,h2{overflow-wrap:normal!important;word-break:normal!important;line-break:strict!important}.section-head h1{font-size:clamp(1.875rem,9vw,2.25rem)!important}.section-head h2{font-size:clamp(1.5rem,7vw,1.75rem)!important;line-height:1.42!important}.section-head p,.copy p,.card p{font-size:.9375rem;line-height:1.75}.cta h2{font-size:clamp(1.5rem,7vw,1.75rem)!important}.service-index-hero{padding:56px 0 48px}.service-index-hero h1{font-size:clamp(1.875rem,9vw,2.25rem)}.service-index-hero p{font-size:.9375rem;line-height:1.75}.service-index-list{grid-template-columns:1fr}.service-index-list a{grid-template-columns:36px 1fr;min-height:100px;padding:20px;border-right:0}.service-index-list a::after{top:20px;right:20px}.service-index-list small{font-size:.8rem}.service-index-price .container{display:block}.service-index-price .button{margin-top:24px}.top-price-heading{margin-bottom:28px;font-size:1.75rem}.top-price-link{text-align:stretch}#pricing .pricing-grid{grid-template-columns:1fr}#pricing .pricing-card{padding:24px}}
