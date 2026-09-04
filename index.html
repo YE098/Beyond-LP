@@ -24,8 +24,10 @@
     <link rel="apple-touch-icon" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="image" href="/works-images/architectural-visualization-hero.webp" type="image/webp" fetchpriority="high">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="/works-images/architectural-visualization-hero-mobile.webp" type="image/webp" media="(max-width: 800px)" fetchpriority="high">
+    <link rel="preload" as="image" href="/works-images/architectural-visualization-hero.webp" type="image/webp" media="(min-width: 801px)" fetchpriority="high">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"></noscript>
     <script>document.documentElement.classList.add('js');</script>
     <script type="application/ld+json">
     {
@@ -1020,6 +1022,12 @@
                 height: 100svh;
             }
             .hero-content { padding-top: 70px; }
+            .hero-bg {
+                background-image: linear-gradient(90deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.72) 48%, rgba(0,0,0,0.24) 100%),
+                                  url('/works-images/architectural-visualization-hero-mobile.webp');
+                animation: none;
+                transform: scale(1.02);
+            }
             .hero h1 {
                 font-size: clamp(2.15rem, 10.5vw, 3rem);
                 line-height: 1.2;
@@ -1154,7 +1162,7 @@
 
     <header id="main-header">
         <div class="container header-content">
-            <a href="/" class="logo" aria-label="Beyond CG Studio トップへ"><img class="logo-mark" src="/logo-mark.png" alt="" width="36" height="36"><span>Beyond CG Studio</span></a>
+            <a href="/" class="logo" aria-label="Beyond CG Studio トップへ"><img class="logo-mark" src="/logo-mark-small.webp" alt="" width="36" height="36"><span>Beyond CG Studio</span></a>
             <nav id="main-navigation" aria-label="メインナビゲーション">
                 <ul class="nav-links">
                     <li><a href="/architectural-rendering">サービス</a></li>
@@ -1176,7 +1184,7 @@
         <section class="hero">
             <div class="hero-bg"></div>
             <div class="container">
-                <div class="hero-content reveal">
+                <div class="hero-content">
                     <span class="section-label">建築パース・インテリアCG制作スタジオ</span>
                     <h1><span class="hero-title-line">設計の意図を、</span><span class="hero-title-line">伝わる建築パースへ。</span></h1>
                     <p class="hero-tagline">内観・外観CGで、完成前の空間を可視化します。</p>
@@ -1191,10 +1199,10 @@
             <div class="container">
                 <h2 class="section-label reveal">代表的な制作実績</h2>
                 <div class="portfolio-grid">
-                    <div class="portfolio-item square reveal"><img src="/works-images/dental-clinic-waiting-room-cg.webp" alt="歯科医院の待合室CGパース" width="1920" height="1080" loading="lazy" decoding="async"><div class="portfolio-info"><h3>歯科医院 待合室</h3><p>クリニック / 2026</p></div></div>
-                    <div class="portfolio-item square reveal"><img src="/works-images/ginza-sushi-restaurant-interior.webp" alt="東京銀座の寿司店の内観CGパース" width="3840" height="2160" loading="lazy" decoding="async"><div class="portfolio-info"><h3>東京銀座 寿司店</h3><p>内観 / 2026</p></div></div>
-                    <div class="portfolio-item square reveal"><img src="/works-images/korean-restaurant-interior-rendering.webp" alt="鶴橋の韓国料理店の内観CGパース" width="1344" height="768" loading="lazy" decoding="async"><div class="portfolio-info"><h3>鶴橋 韓国料理店</h3><p>店舗 / 内観CG</p></div></div>
-                    <div class="portfolio-item square reveal"><img src="/works-images/tower-mansion-3.webp" alt="タワーマンションのリビングを表現した内観CGパース" width="2560" height="1440" loading="lazy" decoding="async"><div class="portfolio-info"><h3>タワーマンション リビング</h3><p>住宅 / 内観CG</p></div></div>
+                    <div class="portfolio-item square reveal"><img src="/works-images/home-dental-clinic.webp" data-full="/works-images/dental-clinic-waiting-room-cg.webp" alt="歯科医院の待合室CGパース" width="960" height="540" loading="lazy" decoding="async"><div class="portfolio-info"><h3>歯科医院 待合室</h3><p>クリニック / 2026</p></div></div>
+                    <div class="portfolio-item square reveal"><img src="/works-images/home-ginza-sushi.webp" data-full="/works-images/ginza-sushi-restaurant-interior.webp" alt="東京銀座の寿司店の内観CGパース" width="960" height="540" loading="lazy" decoding="async"><div class="portfolio-info"><h3>東京銀座 寿司店</h3><p>内観 / 2026</p></div></div>
+                    <div class="portfolio-item square reveal"><img src="/works-images/home-korean-restaurant.webp" data-full="/works-images/korean-restaurant-interior-rendering.webp" alt="鶴橋の韓国料理店の内観CGパース" width="960" height="549" loading="lazy" decoding="async"><div class="portfolio-info"><h3>鶴橋 韓国料理店</h3><p>店舗 / 内観CG</p></div></div>
+                    <div class="portfolio-item square reveal"><img src="/works-images/home-tower-mansion.webp" data-full="/works-images/tower-mansion-3.webp" alt="タワーマンションのリビングを表現した内観CGパース" width="960" height="540" loading="lazy" decoding="async"><div class="portfolio-info"><h3>タワーマンション リビング</h3><p>住宅 / 内観CG</p></div></div>
                 </div>
                 <div style="margin-top: 45px; text-align: center;"><a href="/works" class="btn">制作実績をすべて見る</a></div>
             </div>
@@ -1423,7 +1431,7 @@
 
     <footer>
         <div class="container">
-            <a href="/" class="logo" aria-label="Beyond CG Studio トップへ"><img class="logo-mark" src="/logo-mark.png" alt="" width="36" height="36"><span>Beyond CG Studio</span></a>
+            <a href="/" class="logo" aria-label="Beyond CG Studio トップへ"><img class="logo-mark" src="/logo-mark-small.webp" alt="" width="36" height="36"><span>Beyond CG Studio</span></a>
             <ul class="social-links" aria-label="公式SNS">
                 <li>
                     <a href="https://www.instagram.com/beyond_cg/" target="_blank" rel="noopener noreferrer" aria-label="Beyond CG StudioのInstagramを新しいタブで開く">
@@ -1526,7 +1534,7 @@
             const category = item.querySelector('.portfolio-info p')?.textContent || '';
 
             lastFocusedItem = item;
-            lightboxImage.src = image.src;
+            lightboxImage.src = image.dataset.full || image.src;
             lightboxImage.alt = image.alt;
             lightboxCaption.textContent = category ? `${title} — ${category}` : title;
             lightbox.classList.add('active');
