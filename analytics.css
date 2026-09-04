@@ -144,3 +144,18 @@ main>section:not(:first-child){padding-top:var(--site-section-space)!important;p
 /* Aboutページの各ブロックを画面中央の共通幅へ収める */
 .about-page .hero .container{max-width:960px}.about-page .profile-section>.container{max-width:1040px}
 @media(min-width:801px){.about-page .profile-layout{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px;max-width:100%}.about-page .profile-map{align-self:end}}
+
+/* トップページ試験テーマ: 黒い流体光沢とフロストガラス */
+.liquid-glass-theme{background:#090a0a}
+.liquid-glass-theme #main-header{background:rgba(10,11,11,.68)!important;border-bottom-color:rgba(255,255,255,.16)!important;backdrop-filter:blur(22px) saturate(135%);-webkit-backdrop-filter:blur(22px) saturate(135%)}
+.liquid-glass-theme .hero-bg{background-image:radial-gradient(circle at 22% 32%,rgba(255,255,255,.16),transparent 26%),radial-gradient(circle at 78% 64%,rgba(210,176,84,.14),transparent 25%),linear-gradient(115deg,rgba(0,0,0,.88) 8%,rgba(4,5,5,.54) 52%,rgba(0,0,0,.72) 100%),url('/works-images/architectural-visualization-hero.webp');filter:saturate(.72) contrast(1.08)}
+.liquid-glass-theme .hero-content{position:relative;padding:clamp(30px,4vw,54px);overflow:hidden;border:1px solid rgba(255,255,255,.2);border-radius:30px;background:linear-gradient(135deg,rgba(255,255,255,.13),rgba(255,255,255,.045) 48%,rgba(201,168,76,.07));box-shadow:0 26px 80px rgba(0,0,0,.42),inset 0 1px rgba(255,255,255,.2);backdrop-filter:blur(18px) saturate(120%);-webkit-backdrop-filter:blur(18px) saturate(120%)}
+.liquid-glass-theme .hero-content::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(112deg,transparent 18%,rgba(255,255,255,.11) 38%,transparent 56%);opacity:.55}
+.liquid-glass-theme .hero-content>*{position:relative;z-index:1}
+.liquid-glass-theme .btn{border-color:rgba(201,168,76,.72);border-radius:999px;background:rgba(8,9,9,.42);box-shadow:inset 0 1px rgba(255,255,255,.1);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.liquid-glass-theme .btn.primary{background:linear-gradient(135deg,#d9b84f,#b78e28);box-shadow:0 12px 34px rgba(181,140,38,.2),inset 0 1px rgba(255,255,255,.45)}
+.liquid-glass-theme .service-card,.liquid-glass-theme .pricing-card{padding:28px;border:1px solid rgba(255,255,255,.13);border-radius:20px;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));box-shadow:inset 0 1px rgba(255,255,255,.09);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.liquid-glass-theme .service-card{padding-top:28px}.liquid-glass-theme .pricing-card:hover{background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(201,168,76,.045));border-color:rgba(201,168,76,.42)}
+.liquid-glass-theme #services,.liquid-glass-theme #pricing,.liquid-glass-theme #info{background-image:radial-gradient(circle at 8% 15%,rgba(255,255,255,.035),transparent 28%),radial-gradient(circle at 92% 82%,rgba(201,168,76,.04),transparent 30%)}
+@media(max-width:600px){.liquid-glass-theme .hero-content{padding:26px 18px;border-radius:22px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.liquid-glass-theme .service-card,.liquid-glass-theme .pricing-card{padding:22px;border-radius:16px}}
+@media(prefers-reduced-transparency:reduce){.liquid-glass-theme .hero-content,.liquid-glass-theme .service-card,.liquid-glass-theme .pricing-card{background:#151616;backdrop-filter:none;-webkit-backdrop-filter:none}}
