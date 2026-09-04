@@ -7,7 +7,8 @@ const securityHeaders = {
     'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=(), usb=()',
     'Referrer-Policy': 'strict-origin-when-cross-origin',
     'X-Content-Type-Options': 'nosniff',
-    'X-Frame-Options': 'SAMEORIGIN'
+    'X-Frame-Options': 'SAMEORIGIN',
+    'Content-Signal': 'search=yes, ai-input=yes, ai-train=yes'
 };
 
 const jsonResponse = (data, status = 200, extraHeaders = {}) => new Response(
@@ -62,6 +63,9 @@ export default {
 
         const headers = new Headers(assetResponse.headers);
         const pathname = url.pathname.toLowerCase();
+        if (pathname.endsWith('.html') || !/\.[a-z0-9]+$/i.test(pathname)) {
+            headers.set('X-Robots-Tag', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+        }
         if (/\.(?:webp|png|jpg|jpeg|gif|svg|ico)$/.test(pathname)) {
             headers.set('Cache-Control', 'public, max-age=604800, stale-while-revalidate=86400');
         } else if (/\.(?:css|js)$/.test(pathname)) {

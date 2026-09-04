@@ -1,0 +1,28 @@
+# Beyond CG Studio
+
+> 大阪を拠点に全国オンライン対応する、建築CGパース・インテリアCG制作スタジオです。住宅、店舗・飲食店、クリニック・美容施設などの完成イメージを、設計提案、施主確認、販促に使えるビジュアルとして制作します。
+
+## Main pages
+
+- [トップ](https://beyondcgstudio.com/): サービス概要、代表実績、料金の目安、問い合わせ
+- [建築CGパース制作](https://beyondcgstudio.com/architectural-rendering): 建築パースサービスの案内
+- [内観CGパース制作](https://beyondcgstudio.com/interior-rendering): 内装計画向け内観CGの案内
+- [外観CGパース制作](https://beyondcgstudio.com/exterior-rendering): 建築外観・ファサードCGの案内
+- [店舗・飲食店CGパース](https://beyondcgstudio.com/store-rendering): 店舗設計・出店計画向けサービス
+- [住宅・マンションCGパース](https://beyondcgstudio.com/residential-rendering): 住宅設計・リノベーション向けサービス
+- [クリニック・美容施設CGパース](https://beyondcgstudio.com/medical-rendering): 医療・美容施設向けサービス
+- [制作実績](https://beyondcgstudio.com/works): 公開可能な建築・内観・外観CGの事例
+- [料金・納期・修正条件](https://beyondcgstudio.com/pricing-guide): 料金に含まれる内容、制作期間、修正条件、制作工程
+- [事業者情報](https://beyondcgstudio.com/about): 運営者、所在地、対応地域、制作環境
+- [お問い合わせ](https://beyondcgstudio.com/#contact): 見積もり・制作相談フォーム
+
+## Service area and contact
+
+- 対応地域: 日本全国（オンライン対応）
+- 拠点: 大阪府大阪市
+- Email: contact@beyondcgstudio.com
+- Primary language: Japanese
+
+## Crawling and use
+
+Public pages and public images may be indexed for search, used for AI-assisted retrieval and grounding, and used for AI model training. Canonical URLs and current public pages are listed in the XML sitemaps.
