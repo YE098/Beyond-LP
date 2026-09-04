@@ -140,3 +140,7 @@ main>section:not(:first-child){padding-top:var(--site-section-space)!important;p
 /* 事業者情報は見出しを全幅中央、その下を情報と地図の2列に整理 */
 @media(min-width:801px){.about-page .profile-layout{grid-template-columns:minmax(0,1.15fr) minmax(360px,.85fr);column-gap:56px;row-gap:0;max-width:1080px;margin-right:auto;margin-left:auto}.about-page .profile-wrap{display:contents}.about-page .profile-wrap>.eyebrow{grid-column:1/-1;text-align:center;margin-bottom:8px}.about-page .profile-wrap>h2{grid-column:1/-1;text-align:center;margin:0}.about-page .profile-wrap>.profile-intro{grid-column:1/-1;max-width:720px;margin:10px auto 30px;text-align:center}.about-page .profile-list{grid-column:1;grid-row:4}.about-page .profile-map{grid-column:2;grid-row:4;margin-top:0}}
 @media(max-width:800px){.about-page .profile-layout{row-gap:0}.about-page .profile-wrap>.eyebrow,.about-page .profile-wrap>h2,.about-page .profile-wrap>.profile-intro{text-align:center}.about-page .profile-wrap>.profile-intro{margin-right:auto;margin-bottom:28px;margin-left:auto}.about-page .profile-map{margin-top:28px}}
+
+/* Aboutページの各ブロックを画面中央の共通幅へ収める */
+.about-page .hero .container{max-width:960px}.about-page .profile-section>.container{max-width:1040px}
+@media(min-width:801px){.about-page .profile-layout{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px;max-width:100%}}
