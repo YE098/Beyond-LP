@@ -135,6 +135,7 @@ main>section:not(:first-child){padding-top:var(--site-section-space)!important;p
 
 /* 下層ページの導入見出しを共通の中央軸に揃える */
 .works-page #works .section-head{text-align:center}.works-page #works .section-head p{margin-right:auto;margin-left:auto}
+.works-page #works .work-filters{justify-content:center;max-width:760px;margin-right:auto;margin-left:auto}
 .about-page .hero .container{text-align:center}.about-page .hero h1,.about-page .hero p{margin-right:auto;margin-left:auto}.about-page .hero .buttons{justify-content:center}
 
 /* 事業者情報は見出しを全幅中央、その下を情報と地図の2列に整理 */
