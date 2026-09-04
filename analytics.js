@@ -168,6 +168,15 @@
         link.textContent = '制作について相談する';
         link.setAttribute('aria-label', '制作について問い合わせる');
         document.body.appendChild(link);
+
+        const form = document.querySelector('#contact-form, .contact-form');
+        if (form) {
+            const setFormActive = active => link.classList.toggle('is-form-active', active);
+            form.addEventListener('focusin', () => setFormActive(true));
+            form.addEventListener('focusout', () => {
+                window.setTimeout(() => setFormActive(form.contains(document.activeElement)), 0);
+            });
+        }
     };
 
     document.addEventListener('DOMContentLoaded', () => {
