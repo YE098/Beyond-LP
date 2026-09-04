@@ -132,3 +132,7 @@ main>section:not(:first-child){padding-top:var(--site-section-space)!important;p
 
 /* サービス総合ページの導入文をCTAと同じ中央軸に揃える */
 .service-index-hero .container{text-align:center}.service-index-hero h1,.service-index-hero p{margin-right:auto;margin-left:auto}
+
+/* 下層ページの導入見出しを共通の中央軸に揃える */
+.works-page #works .section-head{text-align:center}.works-page #works .section-head p{margin-right:auto;margin-left:auto}
+.about-page .hero .container{text-align:center}.about-page .hero h1,.about-page .hero p{margin-right:auto;margin-left:auto}.about-page .hero .buttons{justify-content:center}
