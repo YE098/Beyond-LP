@@ -23,9 +23,9 @@
 .site-header{height:68px!important}.site-header-inner{width:calc(100% - 32px)!important;margin:auto!important}
 .site-header .menu-toggle{display:flex!important;position:relative!important;z-index:3!important;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:10px;border:0;background:transparent}
 .site-header .menu-toggle span{display:none!important}
-.site-header .menu-toggle::before,.site-header .menu-toggle::after{content:"";position:absolute;left:10px;width:24px;height:2px;background:#f2f0ea;transition:transform .2s,top .2s,bottom .2s,box-shadow .2s}
-.site-header .menu-toggle::before{top:14px;box-shadow:0 7px 0 #f2f0ea}
-.site-header .menu-toggle::after{bottom:14px}
+.site-header .menu-toggle::before,.site-header .menu-toggle::after{content:"";position:absolute;left:12px;width:20px;height:1px;background:#f2f0ea;transition:transform .2s,top .2s,bottom .2s,box-shadow .2s}
+.site-header .menu-toggle::before{top:15px;box-shadow:0 6px 0 #f2f0ea}
+.site-header .menu-toggle::after{bottom:15px}
 .site-header.menu-open .menu-toggle::before{top:21px;box-shadow:none;transform:rotate(45deg)}
 .site-header.menu-open .menu-toggle::after{bottom:21px;transform:rotate(-45deg)}
 .site-nav{display:none!important;position:fixed!important;top:68px!important;right:0!important;bottom:0!important;left:auto!important;width:clamp(200px,40vw,260px)!important;max-width:260px!important;height:calc(100vh - 68px)!important;box-sizing:border-box!important;overflow-y:auto!important;padding:20px 18px 48px!important;background:#111211!important;box-shadow:-18px 0 48px rgba(0,0,0,.38)!important}
