@@ -3,7 +3,7 @@
     const consentKey = 'bcg_analytics_consent';
     const workContactContext = {
         '/works/dental-clinic': ['歯科医院の待合室・内観CGパース', '内観パース', 'クリニック・美容施設'],
-        '/works/ginza-sushi-restaurant': ['銀座の寿司店 内観CGパース', '内観パース', '店舗・飲食店'],
+        '/works/ginza-sushi-restaurant': ['東京の寿司店 内観CGパース', '内観パース', '店舗・飲食店'],
         '/works/korean-restaurant': ['韓国料理店 内観CGパース', '内観パース', '店舗・飲食店'],
         '/works/tower-mansion': ['タワーマンション 内観CGパース', '内観パース', '住宅・マンション'],
         '/works/share-salon': ['シェアサロン 受付・待合CGパース', '内観パース', 'クリニック・美容施設'],
